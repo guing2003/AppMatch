@@ -10,11 +10,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class Edit_Perfil_EmpresaActivity : AppCompatActivity() {
+class VagasCadastradas_EmpresaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_edit_perfil_empresa)
+        setContentView(R.layout.activity_vagas_cadastradas_empresa)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -39,4 +39,24 @@ class Edit_Perfil_EmpresaActivity : AppCompatActivity() {
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_item, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.perfil ->{
+                Intent(this, VagasCadastradas_EmpresaActivity::class.java).apply{
+                    startActivity(this)
+                }
+            }
+            R.id.newService -> {
+                Intent(this,VagasCadastradas_EmpresaActivity::class.java).apply {
+                    startActivity(this)
+                }
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }

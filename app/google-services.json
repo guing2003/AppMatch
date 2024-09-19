@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "591294557465",
+    "project_id": "appmatch-b7af2",
+    "storage_bucket": "appmatch-b7af2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:591294557465:android:87b036b095efcba525a988",
+        "android_client_info": {
+          "package_name": "com.guilhermedelecrode.appmatch"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUi40DbieSNXqJ1vlXItG5mKWK91GRfxM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

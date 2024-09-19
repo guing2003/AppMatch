@@ -7,38 +7,15 @@
     android:layout_height="match_parent"
     tools:context=".Edit_Perfil_FreeActivity">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="143dp"
-        android:layout_height="88dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#00547D"
-        android:text="Voltar"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout13"
         android:layout_width="300dp"
         android:layout_height="0dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="32dp"
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"

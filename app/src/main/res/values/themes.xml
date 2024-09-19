@@ -1,9 +1,32 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.AppMatch" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.AppMatch" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!-- Personalizar o ActionBar -->
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">false</item>
+        <item name="android:windowActionBarOverlay">false</item>
+
+        <!-- Cor do fundo da ActionBar (transparente) -->
+        <item name="actionBarStyle">@style/WhiteActionBar</item>
+
+        <!-- Cor dos ícones da ActionBar, incluindo os três pontos do menu -->
+        <item name="actionMenuTextColor">@android:color/black</item>
+        <item name="actionMenuTextAppearance">@style/ActionBarMenuStyle</item>
+
+        <!-- Cor padrão do título e dos textos -->
+        <item name="android:textColorPrimary">@android:color/black</item> <!-- Cor do título da ActionBar -->
     </style>
 
+    <!-- Estilo personalizado para o menu da ActionBar (ícones e textos) -->
+    <style name="ActionBarMenuStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Menu">
+        <item name="android:textColor">@android:color/black</item> <!-- Cor dos textos do menu -->
+    </style>
+
+    <!-- Estilo customizado para a ActionBar (fundo transparente) -->
+    <style name="WhiteActionBar" parent="Widget.AppCompat.ActionBar">
+        <item name="background">@android:color/transparent</item> <!-- Torna a ActionBar transparente -->
+    </style>
+
+    <!-- Tema principal da aplicação, herdando do tema base -->
     <style name="Theme.AppMatch" parent="Base.Theme.AppMatch" />
 </resources>

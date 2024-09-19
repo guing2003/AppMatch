@@ -19,9 +19,7 @@ class CadastroFreeFragment: Fragment(){
             container,
             false
         )
-
         //Processamento da visualização
-
         return view
     }
 }
