@@ -24,6 +24,7 @@
         android:layout_marginTop="8dp"
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
+        app:boxBackgroundMode="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -34,6 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="E-mail"
+            android:hyphenationFrequency="none"
             android:inputType="text|textEmailAddress"
             android:textAlignment="textStart" />
     </com.google.android.material.textfield.TextInputLayout>

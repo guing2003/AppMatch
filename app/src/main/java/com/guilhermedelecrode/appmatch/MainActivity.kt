@@ -42,19 +42,4 @@ class MainActivity : AppCompatActivity() {
         }
         auth = Firebase.auth
     }
-
-    private fun signInUserWithEmailAndPassword(email: String, password: String){
-        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
-            if(task.isSuccessful){
-                Log.d(TAG, "signInUserWithEmailAndPassword:Success") //Mostrar no log se logou com sucesso o usuario
-                val user = auth.currentUser
-            }else{
-                Log.w(TAG,"signInUserWithEmailAndPassword:Failure", task.exception) //Mostrar no log se falhou o login do usuario
-                Toast.makeText(baseContext, "Authentication Failure", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-    companion object{
-        private var TAG = "EmailAndPassword"
-    }
 }
