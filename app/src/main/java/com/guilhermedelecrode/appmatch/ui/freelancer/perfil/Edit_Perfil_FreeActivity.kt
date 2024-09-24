@@ -56,29 +56,6 @@ class Edit_Perfil_FreeActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_item_edit_perfil_free, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.perfil -> {
-                Intent(this, Vagas_Cadastradas_EmpresaActivity::class.java).apply {
-                    startActivity(this)
-                }
-            }
-
-            R.id.newService -> {
-                Intent(this, Vagas_Cadastradas_EmpresaActivity::class.java).apply {
-                    startActivity(this)
-                }
-            }
-        }
-        return super.onOptionsItemSelected(item)
-
-    }
-
     override fun onResume() {
         super.onResume()
         Log.d("MyActivity", "Atividade em execução: ${this::class.java.simpleName}")

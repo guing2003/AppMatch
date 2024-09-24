@@ -2,6 +2,7 @@ package com.guilhermedelecrode.appmatch.ui.empresa.vagas
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
@@ -26,6 +27,8 @@ class Vagas_Cadastradas_EmpresaActivity : AppCompatActivity() {
             insets
 
         }
+        onResume()
+
         rvVagas_Cadastradas = findViewById(R.id.rvVagas_Cadastradas)
 
 
@@ -67,5 +70,10 @@ class Vagas_Cadastradas_EmpresaActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("MyActivity", "Atividade em execução: ${this::class.java.simpleName}")
     }
 }

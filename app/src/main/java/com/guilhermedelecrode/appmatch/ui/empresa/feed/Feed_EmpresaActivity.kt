@@ -2,6 +2,7 @@ package com.guilhermedelecrode.appmatch.ui.empresa.feed
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
@@ -23,6 +24,7 @@ class Feed_EmpresaActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        onResume()
 
         // Habilitar suporte a ActionBar personalizada
         supportActionBar?.setDisplayShowHomeEnabled(false)
@@ -68,5 +70,10 @@ class Feed_EmpresaActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("MyActivity", "Atividade em execução: ${this::class.java.simpleName}")
     }
 }

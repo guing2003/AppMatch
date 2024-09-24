@@ -2,6 +2,7 @@ package com.guilhermedelecrode.appmatch.ui.empresa.ofertas
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
@@ -22,6 +23,7 @@ class Ofertas_Enviadas_EmpresaActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        onResume()
 
         // Habilitar suporte a ActionBar personalizada
         supportActionBar?.setDisplayShowHomeEnabled(false)
@@ -49,18 +51,17 @@ class Ofertas_Enviadas_EmpresaActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.perfil -> {
+            /*R.id.perfil -> {
                 Intent(this, Vagas_Cadastradas_EmpresaActivity::class.java).apply {
                     startActivity(this)
                 }
-            }
-
-            R.id.newService -> {
-                Intent(this, Vagas_Cadastradas_EmpresaActivity::class.java).apply {
-                    startActivity(this)
-                }
-            }
+            }*/
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("MyActivity", "Atividade em execução: ${this::class.java.simpleName}")
     }
 }

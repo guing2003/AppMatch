@@ -2,6 +2,7 @@ package com.guilhermedelecrode.appmatch.ui.empresa.perfil
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
@@ -23,6 +24,19 @@ class Edit_Perfil_EmpresaActivity : AppCompatActivity() {
             insets
         }
 
+        val btn_salvar_edit_free = findViewById<Button>(R.id.btn_salvar_edit_free)
+        btn_salvar_edit_free.setOnClickListener{
+            val intent = Intent(this, Perfil_EmpresaActivity::class.java)
+            startActivity(intent)
+        }
+
+        val btn_cancelar_edit_free = findViewById<Button>(R.id.btn_cancelar_edit_free)
+        btn_cancelar_edit_free.setOnClickListener{
+            val intent = Intent(this, Perfil_EmpresaActivity::class.java)
+            startActivity(intent)
+        }
+        onResume()
+
         // Habilitar suporte a ActionBar personalizada
         supportActionBar?.setDisplayShowHomeEnabled(false)
         supportActionBar?.setDisplayShowTitleEnabled(false)
@@ -42,27 +56,9 @@ class Edit_Perfil_EmpresaActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_item_edit_perfil_empresa, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.perfil -> {
-                Intent(this, Vagas_Cadastradas_EmpresaActivity::class.java).apply {
-                    startActivity(this)
-                }
-            }
-
-            R.id.newService -> {
-                Intent(this, Vagas_Cadastradas_EmpresaActivity::class.java).apply {
-                    startActivity(this)
-                }
-            }
-        }
-        return super.onOptionsItemSelected(item)
-
+    override fun onResume() {
+        super.onResume()
+        Log.d("MyActivity", "Atividade em execução: ${this::class.java.simpleName}")
     }
 
 }

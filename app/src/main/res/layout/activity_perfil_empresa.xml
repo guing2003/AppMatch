@@ -7,29 +7,6 @@
     android:layout_height="match_parent"
     tools:context=".ui.empresa.perfil.Perfil_EmpresaActivity">
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="143dp"
-        android:layout_height="88dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
-
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#00547D"
-        android:text="Voltar"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.902"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
@@ -81,7 +58,7 @@
         android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="24dp"
         android:text="Meu Perfil"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -103,15 +80,16 @@
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/btn_edit_perfil_empresa"
         android:layout_width="wrap_content"
         android:layout_height="56dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="#00547D"
         android:text="Editar"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="433dp" />
+        app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
     <TextView
         android:id="@+id/textView23"
