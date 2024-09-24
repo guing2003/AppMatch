@@ -13,25 +13,40 @@
         android:theme="@style/Theme.AppMatch"
         tools:targetApi="31">
         <activity
+            android:name=".ui.empresa.perfil.Edit_Perfil_EmpresaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.empresa.vagas.Vagas_Cadastradas_EmpresaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.empresa.perfil.Perfil_EmpresaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.cadastro.CadastroActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.freelancer.perfil.Perfil_FreeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.freelancer.perfil.Edit_Perfil_FreeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.freelancer.vagas.Detalhes_Vaga_FreeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.empresa.feed.Feed_EmpresaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.empresa.ordem_servico.Ordens_Servico_EmpresaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.freelancer.feed.Feed_FreeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.freelancer.ordem_servico.Ordem_Servico_FreeActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
-            android:exported="false" />
-        <activity
-            android:name=".VagasCadastradas_EmpresaActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Perfil_EmpresaActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CadastroActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Perfil_FreeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Edit_Perfil_FreeActivity"
-            android:exported="false" />
-        <activity
-            android:name=".Edit_Perfil_EmpresaActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

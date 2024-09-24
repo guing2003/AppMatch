@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Edit_Perfil_FreeActivity">
+    tools:context=".ui.freelancer.perfil.Edit_Perfil_FreeActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout13"
@@ -57,20 +57,20 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/btn_cancelar_edit_free"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="74dp"
         android:layout_marginTop="32dp"
         android:backgroundTint="#00547D"
         android:text="Cancelar"
-        app:layout_constraintEnd_toStartOf="@+id/button10"
+        app:layout_constraintEnd_toStartOf="@+id/btn_salvar_edit_free"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout14" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/btn_salvar_edit_free"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
@@ -78,8 +78,8 @@
         android:text="Salvar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button9"
-        app:layout_constraintTop_toTopOf="@+id/button9" />
+        app:layout_constraintStart_toEndOf="@+id/btn_cancelar_edit_free"
+        app:layout_constraintTop_toTopOf="@+id/btn_cancelar_edit_free" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout15"

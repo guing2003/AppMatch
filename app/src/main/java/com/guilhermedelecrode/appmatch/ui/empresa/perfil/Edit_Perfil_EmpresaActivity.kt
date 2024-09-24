@@ -1,4 +1,4 @@
-package com.guilhermedelecrode.appmatch
+package com.guilhermedelecrode.appmatch.ui.empresa.perfil
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +9,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.guilhermedelecrode.appmatch.R
+import com.guilhermedelecrode.appmatch.ui.empresa.vagas.Vagas_Cadastradas_EmpresaActivity
 
 class Edit_Perfil_EmpresaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,6 +22,7 @@ class Edit_Perfil_EmpresaActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
         // Habilitar suporte a ActionBar personalizada
         supportActionBar?.setDisplayShowHomeEnabled(false)
         supportActionBar?.setDisplayShowTitleEnabled(false)
@@ -37,6 +40,29 @@ class Edit_Perfil_EmpresaActivity : AppCompatActivity() {
             // Voltar à tela anterior ou realizar alguma ação
             onBackPressed()
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_item_edit_perfil_empresa, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.perfil -> {
+                Intent(this, Vagas_Cadastradas_EmpresaActivity::class.java).apply {
+                    startActivity(this)
+                }
+            }
+
+            R.id.newService -> {
+                Intent(this, Vagas_Cadastradas_EmpresaActivity::class.java).apply {
+                    startActivity(this)
+                }
+            }
+        }
+        return super.onOptionsItemSelected(item)
+
     }
 
 }

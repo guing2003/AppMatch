@@ -118,7 +118,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn_cadastro_empresa"
         android:layout_width="wrap_content"
         android:layout_height="54dp"
         android:layout_marginTop="30dp"

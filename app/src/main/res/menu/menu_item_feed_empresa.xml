@@ -2,23 +2,24 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <item
         android:id="@+id/perfilEmpresa"
         android:title="Meu perfil"
         app:showAsAction="collapseActionView"
         />
     <item
-        android:id="@+id/newService"
+        android:id="@+id/novoServico"
         android:title="Novo Serviço"
         app:showAsAction="collapseActionView"
         />
     <item
-        android:id="@+id/orderService"
+        android:id="@+id/ordemServicoEmpresa"
         android:title="Ordem de Serviço"
         app:showAsAction="collapseActionView"
         />
     <item
-        android:id="@+id/logout"
+        android:id="@+id/sair"
         android:title="Sair"
         app:showAsAction="collapseActionView"
         />

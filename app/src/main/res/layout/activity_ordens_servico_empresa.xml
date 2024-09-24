@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:foregroundTint="#000000"
-    tools:context=".Ordens_ServicoActivity">
+    tools:context=".ui.empresa.ordem_servico.Ordens_Servico_EmpresaActivity">
 
     <TextView
         android:id="@+id/textView37"

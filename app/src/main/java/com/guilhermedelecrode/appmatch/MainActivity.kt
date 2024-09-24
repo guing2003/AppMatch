@@ -7,14 +7,11 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
+import com.guilhermedelecrode.appmatch.ui.cadastro.CadastroActivity
 import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
@@ -23,7 +20,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var edit_senha : EditText
     private lateinit var btn_login : Button
     private lateinit var txt_cadastro : Text
-    private lateinit var auth:FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,12 +30,17 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        onResume()
+
         //Logica para chamar outra tela
-        val textView = findViewById<TextView>(R.id.txt_cadastro)
-        textView.setOnClickListener {
+        val txt_Cadastro = findViewById<TextView>(R.id.txt_cadastro)
+        txt_Cadastro.setOnClickListener {
             val intent = Intent(this, CadastroActivity::class.java)
             startActivity(intent)
         }
-        auth = Firebase.auth
+    }
+    override fun onResume() {
+        super.onResume()
+        Log.d("MyActivity", "Atividade em execução: ${this::class.java.simpleName}")
     }
 }

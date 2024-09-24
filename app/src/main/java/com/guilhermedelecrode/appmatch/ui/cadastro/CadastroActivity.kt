@@ -1,29 +1,23 @@
-package com.guilhermedelecrode.appmatch
+package com.guilhermedelecrode.appmatch.ui.cadastro
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.renderscript.ScriptGroup.Binding
 import android.util.Log
 import android.widget.Button
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import com.guilhermedelecrode.appmatch.R
-import com.guilhermedelecrode.appmatch.fragment.CadastroEmpresaFragment
-import com.guilhermedelecrode.appmatch.fragment.CadastroFreeFragment
+import com.guilhermedelecrode.appmatch.ui.cadastro.fragment.Cadastro_EmpresaFragment
+import com.guilhermedelecrode.appmatch.ui.cadastro.fragment.Cadastro_FreeFragment
 
 class CadastroActivity : AppCompatActivity() {
 
     private lateinit var btn_freelance : Button
     private lateinit var btn_empresa: Button
 
-    private lateinit var auth: FirebaseAuth
-    //private var binding : Bin = null
-
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -33,8 +27,8 @@ class CadastroActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        //Authentication Firebase
-        auth = Firebase.auth
+
+        onResume()
 
         //Fragment
         btn_freelance = findViewById(R.id.btn_freelance)
@@ -48,8 +42,8 @@ class CadastroActivity : AppCompatActivity() {
         fragmentManager.commit()
         */
 
-        val freeFragment = CadastroFreeFragment()
-        val empresaFragment = CadastroEmpresaFragment()
+        val freeFragment = Cadastro_FreeFragment()
+        val empresaFragment = Cadastro_EmpresaFragment()
 
         btn_freelance.setOnClickListener {
             supportFragmentManager
@@ -64,20 +58,8 @@ class CadastroActivity : AppCompatActivity() {
                 //.remove(empresaFragment)//Para remover um fragment
                 .commit() }
     }
-
-    private fun createUserWithEmailAndPassword(email: String, password:String){
-        //Chamando a função com os parametros para criar um novo user
-        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener{task ->
-            if(task.isSuccessful){
-                Log.d(TAG, "createUserWithEmailAndPassword:Success") //Mostrar no log se criou com sucesso o usuario
-                val user = auth.currentUser
-            }else{
-                Log.w(TAG,"createUserWithEmailAndPassword:Failure", task.exception) //Mostrar no log se falhou a criação do novo usuario
-                Toast.makeText(baseContext, "Authentication Failure", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-    companion object{
-        private var TAG = "EmailAndPassword"
+    override fun onResume() {
+        super.onResume()
+        Log.d("MyActivity", "Atividade em execução: ${this::class.java.simpleName}")
     }
 }
