@@ -1,6 +1,7 @@
 package com.guilhermedelecrode.appmatch.ui.empresa.perfil
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -8,10 +9,10 @@ import android.view.MenuItem
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.guilhermedelecrode.appmatch.R
-import com.guilhermedelecrode.appmatch.ui.empresa.vagas.Vagas_Cadastradas_EmpresaActivity
 
 class Edit_Perfil_EmpresaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,6 +37,9 @@ class Edit_Perfil_EmpresaActivity : AppCompatActivity() {
             startActivity(intent)
         }
         onResume()
+
+        window.statusBarColor = Color.parseColor("#00537D")
+        window.navigationBarColor = ContextCompat.getColor(this, R.color.principal)
 
         // Habilitar suporte a ActionBar personalizada
         supportActionBar?.setDisplayShowHomeEnabled(false)

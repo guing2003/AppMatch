@@ -1,36 +1,29 @@
 package com.guilhermedelecrode.appmatch.ui.empresa.vagas
 
-import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
+import android.view.LayoutInflater
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.recyclerview.widget.RecyclerView
 import com.guilhermedelecrode.appmatch.R
 
-class Vagas_Cadastradas_EmpresaActivity : AppCompatActivity() {
-
-    lateinit var rvVagas_Cadastradas : RecyclerView
-
+class Cadastrar_VagaActivity() : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_vagas_cadastradas_empresa)
+        setContentView(R.layout.activity_cadastrar_vaga)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
-
         }
-        onResume()
 
-        rvVagas_Cadastradas = findViewById(R.id.rvVagas_Cadastradas)
-
+        window.statusBarColor = Color.parseColor("#00537D")
+        window.navigationBarColor = ContextCompat.getColor(this, R.color.principal)
 
         // Habilitar suporte a ActionBar personalizada
         supportActionBar?.setDisplayShowHomeEnabled(false)
@@ -49,31 +42,7 @@ class Vagas_Cadastradas_EmpresaActivity : AppCompatActivity() {
             // Voltar à tela anterior ou realizar alguma ação
             onBackPressed()
         }
+
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_item, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.perfilEmpresa ->{
-                Intent(this, Vagas_Cadastradas_EmpresaActivity::class.java).apply{
-                    startActivity(this)
-                }
-            }
-            R.id.logout -> {
-                Intent(this, Vagas_Cadastradas_EmpresaActivity::class.java).apply {
-                    startActivity(this)
-                }
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d("MyActivity", "Atividade em execução: ${this::class.java.simpleName}")
-    }
 }

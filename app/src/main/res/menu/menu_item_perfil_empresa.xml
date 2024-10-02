@@ -3,22 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/paginaInicial"
+        android:id="@+id/perfilPaginaInicial"
         android:title="Pagína Inicial"
         app:showAsAction="collapseActionView"
         />
     <item
-        android:id="@+id/novoServico"
+        android:id="@+id/perfilNovoServico"
         android:title="Novo Serviço"
         app:showAsAction="collapseActionView"
         />
     <item
-        android:id="@+id/ordemServicoEmpresa"
+        android:id="@+id/perfilOrdemServicoEmpresa"
         android:title="Ordem de Serviço"
         app:showAsAction="collapseActionView"
         />
     <item
-        android:id="@+id/sair"
+        android:id="@+id/perfilSair"
         android:title="Sair"
         app:showAsAction="collapseActionView"
         />

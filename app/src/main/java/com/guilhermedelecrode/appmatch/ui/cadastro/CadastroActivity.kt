@@ -1,11 +1,13 @@
 package com.guilhermedelecrode.appmatch.ui.cadastro
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.guilhermedelecrode.appmatch.R
@@ -29,6 +31,11 @@ class CadastroActivity : AppCompatActivity() {
         }
 
         onResume()
+
+        window.navigationBarColor = ContextCompat.getColor(this, R.color.principal)
+
+        supportActionBar?.hide()
+        window.statusBarColor = Color.parseColor("#00537D")
 
         //Fragment
         btn_freelance = findViewById(R.id.btn_freelance)

@@ -1,6 +1,7 @@
 package com.guilhermedelecrode.appmatch.ui.empresa.perfil
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -8,12 +9,13 @@ import android.view.MenuItem
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.guilhermedelecrode.appmatch.R
 import com.guilhermedelecrode.appmatch.ui.empresa.feed.Feed_EmpresaActivity
-import com.guilhermedelecrode.appmatch.ui.empresa.ordem_servico.Ordens_Servico_EmpresaActivity
-import com.guilhermedelecrode.appmatch.ui.empresa.vagas.Vagas_Cadastradas_EmpresaActivity
+import com.guilhermedelecrode.appmatch.ui.empresa.ordem_servico.Ordem_Servico_EmpresaActivity
+import com.guilhermedelecrode.appmatch.ui.empresa.vagas.Cadastrar_VagaActivity
 
 class Perfil_EmpresaActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +28,9 @@ class Perfil_EmpresaActivity : AppCompatActivity() {
             insets
         }
         onResume()
+
+        window.statusBarColor = Color.parseColor("#00537D")
+        window.navigationBarColor = ContextCompat.getColor(this, R.color.principal)
 
         val btn_edit_perfil_empresa = findViewById<Button>(R.id.btn_edit_perfil_empresa)
         btn_edit_perfil_empresa.setOnClickListener{
@@ -59,23 +64,23 @@ class Perfil_EmpresaActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.paginaInicial -> {
+            R.id.perfilPaginaInicial -> {
                 Intent(this, Feed_EmpresaActivity::class.java).apply {
                     startActivity(this)
                 }
             }
 
-            R.id.novoServico -> {
-                Intent(this, Feed_EmpresaActivity::class.java).apply {
+            R.id.perfilNovoServico -> {
+                Intent(this, Cadastrar_VagaActivity::class.java).apply {
                     startActivity(this)
                 }
             }
-            R.id.ordemServicoEmpresa -> {
-                Intent(this, Ordens_Servico_EmpresaActivity::class.java).apply {
+            R.id.perfilOrdemServicoEmpresa -> {
+                Intent(this, Ordem_Servico_EmpresaActivity::class.java).apply {
                     startActivity(this)
                 }
             }
-            R.id.sair -> {
+            R.id.perfilSair -> {
                 finishAffinity()
             }
         }

@@ -17,18 +17,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo" />
 
-    <ImageView
-        android:id="@+id/imageView23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:tint="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.957"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
-
     <TextView
         android:id="@+id/textView59"
         android:layout_width="wrap_content"
@@ -124,7 +112,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView63" />
 
     <Button
-        android:id="@+id/button17"
+        android:id="@+id/btn_editar_ordem_servico_free"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"

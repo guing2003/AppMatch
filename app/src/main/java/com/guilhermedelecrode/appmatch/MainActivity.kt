@@ -2,6 +2,7 @@ package com.guilhermedelecrode.appmatch
 
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -9,6 +10,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.guilhermedelecrode.appmatch.ui.cadastro.CadastroActivity
@@ -31,6 +33,11 @@ class MainActivity : AppCompatActivity() {
             insets
         }
         onResume()
+        window.navigationBarColor = ContextCompat.getColor(this, R.color.principal)
+
+
+        supportActionBar?.hide()
+        window.statusBarColor = Color.parseColor("#00537D")
 
         //Logica para chamar outra tela
         val txt_Cadastro = findViewById<TextView>(R.id.txt_cadastro)

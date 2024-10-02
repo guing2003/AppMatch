@@ -20,6 +20,8 @@ class Cadastro_EmpresaFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+
         val view = inflater.inflate(R.layout.fragment_cadastro_empresa, container, false)
 
         val btn_cadastro_empresa : Button = view.findViewById(R.id.btn_cadastro_empresa)
@@ -39,6 +41,7 @@ class Cadastro_EmpresaFragment : Fragment() {
 
         return view
     }
+
 
     class SpinnerManager(private val context: Context) {
         fun setupSpinner(spinner: Spinner, items: List<String>) {

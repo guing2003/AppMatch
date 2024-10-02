@@ -1,17 +1,20 @@
 package com.guilhermedelecrode.appmatch.ui.freelancer.vagas
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.EditText
 import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.guilhermedelecrode.appmatch.R
-import com.guilhermedelecrode.appmatch.ui.empresa.vagas.Vagas_Cadastradas_EmpresaActivity
 import com.guilhermedelecrode.appmatch.ui.freelancer.feed.Feed_FreeActivity
 import com.guilhermedelecrode.appmatch.ui.freelancer.ordem_servico.Ordem_Servico_FreeActivity
 import com.guilhermedelecrode.appmatch.ui.freelancer.perfil.Perfil_FreeActivity
@@ -28,6 +31,31 @@ class Detalhes_Vaga_FreeActivity : AppCompatActivity() {
         }
 
         onResume()
+
+        //Logica para chamar PopUp de oferta
+        val btn_ofertas_free = findViewById<Button>(R.id.btn_oferta_free)
+
+        btn_ofertas_free.setOnClickListener {
+            val dialogView = layoutInflater.inflate(R.layout.dialog_oferta, null)
+
+            val editTextPreco = dialogView.findViewById<EditText>(R.id.editTextPreco)
+            val editTextPrazo = dialogView.findViewById<EditText>(R.id.editTextPrazo)
+
+            AlertDialog.Builder(this)
+
+                .setView(dialogView)
+                .setPositiveButton("Enviar") { dialog, which ->
+                    val preco = editTextPreco.text.toString()
+                    val prazo = editTextPrazo.text.toString()
+                    // Aqui você pode tratar as entradas do usuário
+                }
+                .setNegativeButton("Cancelar", null)
+                .create()
+                .show()
+        }
+
+        window.statusBarColor = Color.parseColor("#00537D")
+        window.navigationBarColor = ContextCompat.getColor(this, R.color.principal)
 
         // Habilitar suporte a ActionBar personalizada
         supportActionBar?.setDisplayShowHomeEnabled(false)

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/dialog_edit_vaga.xml -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Título da Vaga"
+        android:textSize="16sp"/>
+    <EditText
+        android:id="@+id/editTextTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite o título da vaga" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descrição da Vaga"
+        android:textSize="16sp"/>
+    <EditText
+        android:id="@+id/editTextDescricao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite a descrição da vaga" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ferramenta"
+        android:textSize="16sp"/>
+    <EditText
+        android:id="@+id/editTextFerramenta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ferramenta utilizada" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Habilidades"
+        android:textSize="16sp"/>
+    <EditText
+        android:id="@+id/editTextHabilidades"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Habilidades necessárias" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salário"
+        android:textSize="16sp"/>
+    <EditText
+        android:id="@+id/editTextSalario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite o salário"
+        android:inputType="numberDecimal" />
+</LinearLayout>
