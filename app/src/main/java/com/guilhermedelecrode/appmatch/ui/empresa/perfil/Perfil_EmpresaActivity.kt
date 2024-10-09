@@ -67,6 +67,7 @@ class Perfil_EmpresaActivity : AppCompatActivity() {
             R.id.perfilPaginaInicial -> {
                 Intent(this, Feed_EmpresaActivity::class.java).apply {
                     startActivity(this)
+                    finish()
                 }
             }
 

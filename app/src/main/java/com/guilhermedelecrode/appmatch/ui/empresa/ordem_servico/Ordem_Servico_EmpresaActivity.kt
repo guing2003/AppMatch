@@ -114,16 +114,19 @@ class Ordem_Servico_EmpresaActivity : AppCompatActivity() {
             R.id.perfilEmpresa -> {
                 Intent(this, Perfil_EmpresaActivity::class.java).apply {
                     startActivity(this)
+                    finish()
                 }
             }
             R.id.paginaInicial -> {
                 Intent(this, Feed_EmpresaActivity::class.java).apply {
                     startActivity(this)
+                    finish()
                 }
             }
             R.id.novoServico -> {
                 Intent(this, Cadastrar_VagaActivity::class.java).apply { //Criar esta tela
                     startActivity(this)
+                    finish()
                 }
             }
             R.id.sair -> {
