@@ -12,8 +12,10 @@ import android.widget.EditText
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.firestore.FirebaseFirestore
 import com.guilhermedelecrode.appmatch.MainActivity
 import com.guilhermedelecrode.appmatch.R
+import com.guilhermedelecrode.appmatch.ui.cadastro.fragment.Cadastro_EmpresaFragment.Companion.DB
 
 class Cadastro_FreeFragment: Fragment(){
 
@@ -34,21 +36,27 @@ class Cadastro_FreeFragment: Fragment(){
             // Obtendo os valores dos campos EditText corretamente
             val email: String = view.findViewById<EditText>(R.id.edit_email_free).text.toString()
             val senha: String = view.findViewById<EditText>(R.id.edit_senha_free).text.toString()
+            val nome: String = view.findViewById<EditText>(R.id.edit_nome_free).text.toString()
+            val cpf: String = view.findViewById<EditText>(R.id.edit_cpf).text.toString()
+            val telefone: String = view.findViewById<EditText>(R.id.edit_telefone_free).text.toString()
+            val tipoUsuario: String = "freelancer"
 
             if (email.isNotEmpty() && senha.isNotEmpty()) {
-                createUserWithEmailAndPassword(email, senha)
+                createUserWithEmailAndPassword(email, senha, nome, cpf, telefone, tipoUsuario)
             } else {
                 Toast.makeText(requireContext(), "Por favor, preencha os campos", Toast.LENGTH_SHORT).show()
             }
         }
         return view
     }
-    private fun createUserWithEmailAndPassword(email: String, senha: String) {
+    private fun createUserWithEmailAndPassword(email: String, senha: String, nome: String, cpf: String, telefone: String,  tipoUsuario: String) {
         auth.createUserWithEmailAndPassword(email, senha).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 Log.d(TAG, "createUserWithEmailAndPassword: Success")
                 val user = auth.currentUser
-                // Iniciando a Feed_EmpresaActivity após o sucesso da autenticação
+                user?.let{
+                    saveUserData(it.uid,email, nome, cpf, telefone, tipoUsuario )
+                }
                 val intent = Intent(requireActivity(), MainActivity::class.java)
                 startActivity(intent)
                 // Você pode adicionar finish() aqui se quiser fechar a activity atual
@@ -64,7 +72,31 @@ class Cadastro_FreeFragment: Fragment(){
             }
         }
     }
+
+    private fun saveUserData(uid: String, email: String,nome:String, cpf: String,telefone: String, tipoUsuario: String) {
+        // Cria um mapa com os dados que serão salvos no Firestore
+        val userData = hashMapOf(
+            "id" to uid,
+            "email" to email,
+            "nome" to nome,
+            "cpf" to cpf,
+            "telefone" to telefone,
+            "tipoUsuario" to tipoUsuario
+        )
+
+        // Salvando os dados no Firestore usando o UID como o ID do documento
+        val db = FirebaseFirestore.getInstance()
+        db.collection("usuarios").document(uid)
+            .set(userData)
+            .addOnSuccessListener {
+                Log.d(DB, "Dados do usuário salvos no Firestore com sucesso.")
+            }
+            .addOnFailureListener { e ->
+                Log.w(DB, "Erro ao salvar os dados do usuário no Firestore", e)
+            }
+    }
     companion object {
-        private var TAG  ="EmailAndSenha"
+        var TAG  ="EmailAndSenha"
+        var DB = "BancoDeDados"
     }
 }
