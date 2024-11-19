@@ -4,8 +4,6 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -25,8 +23,8 @@ class Edit_Perfil_FreeActivity : AppCompatActivity() {
             insets
         }
 
-        val btn_cancelar_edit_free = findViewById<Button>(R.id.btn_cancelar_edit_free)
-        val btn_salvar_edit_free = findViewById<Button>(R.id.btn_salvar_edit_free)
+        val btn_cancelar_edit_free = findViewById<Button>(R.id.btn_cancelar_edit_empresa)
+        val btn_salvar_edit_free = findViewById<Button>(R.id.btn_salvar_edit_empresa)
         btn_salvar_edit_free.setOnClickListener{
             val intent = Intent(this, Perfil_FreeActivity::class.java)
             startActivity(intent)

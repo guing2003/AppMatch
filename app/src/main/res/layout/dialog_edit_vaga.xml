@@ -13,7 +13,7 @@
         android:text="Título da Vaga"
         android:textSize="16sp"/>
     <EditText
-        android:id="@+id/editTextTitulo"
+        android:id="@+id/edit_titulo_vaga_empresa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Digite o título da vaga" />
@@ -24,7 +24,7 @@
         android:text="Descrição da Vaga"
         android:textSize="16sp"/>
     <EditText
-        android:id="@+id/editTextDescricao"
+        android:id="@+id/edit_vaga_descricao_empresa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Digite a descrição da vaga" />
@@ -34,22 +34,24 @@
         android:layout_height="wrap_content"
         android:text="Ferramenta"
         android:textSize="16sp"/>
+
     <EditText
-        android:id="@+id/editTextFerramenta"
+        android:id="@+id/edit_vaga_habilidades_empresa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ferramenta utilizada" />
+        android:hint="Habilidades" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Habilidades"
-        android:textSize="16sp"/>
+        android:text="Email"
+        android:textSize="16sp" />
+
     <EditText
-        android:id="@+id/editTextHabilidades"
+        android:id="@+id/edit_vaga_email_empresa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Habilidades necessárias" />
+        android:hint="Email" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -57,9 +59,25 @@
         android:text="Salário"
         android:textSize="16sp"/>
     <EditText
-        android:id="@+id/editTextSalario"
+        android:id="@+id/edit_vaga_salario_empresa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Digite o salário"
         android:inputType="numberDecimal" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+    <Button
+        android:id="@+id/btn_salvar_edit_vaga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salvar" />
+        <Button
+        android:id="@+id/btn_cancelar_edit_vaga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="cancelar" />
+    </LinearLayout>
 </LinearLayout>

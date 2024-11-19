@@ -11,7 +11,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -54,7 +53,7 @@ class MainActivity : AppCompatActivity() {
 
         btn_login.setOnClickListener {
             // Obtendo os valores dos campos EditText corretamente
-            val email: String = findViewById<EditText>(R.id.edit_email).text.toString()
+            val email: String = findViewById<EditText>(R.id.edit_email_empresa).text.toString()
             val senha: String = findViewById<EditText>(R.id.edit_senha).text.toString()
 
             if (email.isNotEmpty() && senha.isNotEmpty()) {

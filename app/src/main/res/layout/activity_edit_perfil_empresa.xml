@@ -18,6 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_endereco_empresa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Endereço" />
@@ -33,6 +34,7 @@
         app:layout_constraintTop_toTopOf="@+id/textInputLayout13">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_numero_empresa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="N°" />
@@ -48,29 +50,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout15">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Descrição" />
-    </com.google.android.material.textfield.TextInputLayout>
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout15"/>
 
     <Button
-        android:id="@+id/btn_cancelar_edit_free"
+        android:id="@+id/btn_cancelar_edit_empresa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="74dp"
         android:layout_marginTop="32dp"
         android:backgroundTint="#00547D"
         android:text="Cancelar"
-        app:layout_constraintEnd_toStartOf="@+id/btn_salvar_edit_free"
+        app:layout_constraintEnd_toStartOf="@+id/btn_salvar_edit_empresa"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout14" />
 
     <Button
-        android:id="@+id/btn_salvar_edit_free"
+        android:id="@+id/btn_salvar_edit_empresa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
@@ -78,8 +74,8 @@
         android:text="Salvar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btn_cancelar_edit_free"
-        app:layout_constraintTop_toTopOf="@+id/btn_cancelar_edit_free" />
+        app:layout_constraintStart_toEndOf="@+id/btn_cancelar_edit_empresa"
+        app:layout_constraintTop_toTopOf="@+id/btn_cancelar_edit_empresa" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout15"
@@ -94,6 +90,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout13">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_telefone_empresa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Telefone"

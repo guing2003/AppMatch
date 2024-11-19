@@ -7,17 +7,29 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ListenerRegistration
 import com.guilhermedelecrode.appmatch.R
+import com.guilhermedelecrode.appmatch.adapter.empresa.Perfil_EmpresaAdapter
+import com.guilhermedelecrode.appmatch.model.empresa.Perfil
 import com.guilhermedelecrode.appmatch.ui.empresa.feed.Feed_EmpresaActivity
+import com.guilhermedelecrode.appmatch.ui.empresa.feed.Feed_EmpresaActivity.Companion.VAGA
 import com.guilhermedelecrode.appmatch.ui.empresa.ordem_servico.Ordem_Servico_EmpresaActivity
 import com.guilhermedelecrode.appmatch.ui.empresa.vagas.Cadastrar_VagaActivity
 
 class Perfil_EmpresaActivity : AppCompatActivity() {
+    private lateinit var perfilAdapter: Perfil_EmpresaAdapter
+    private var perfilListener: ListenerRegistration? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -27,16 +39,22 @@ class Perfil_EmpresaActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // Inicializar RecyclerView e adapter
+        val perfilList = mutableListOf<Perfil>()
+        perfilAdapter = Perfil_EmpresaAdapter(perfilList, this)
+
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_perfil)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = perfilAdapter
+
+        // Carregar vagas do Firestore
+        loadPerfilFromFirestore()
+        Log.d("Lista","$perfilList" )
         onResume()
 
         window.statusBarColor = Color.parseColor("#00537D")
         window.navigationBarColor = ContextCompat.getColor(this, R.color.principal)
-
-        val btn_edit_perfil_empresa = findViewById<Button>(R.id.btn_edit_perfil_empresa)
-        btn_edit_perfil_empresa.setOnClickListener{
-            val intent = Intent(this, Edit_Perfil_EmpresaActivity::class.java)
-            startActivity(intent)
-        }
 
         // Habilitar suporte a ActionBar personalizada
         supportActionBar?.setDisplayShowHomeEnabled(false)
@@ -54,7 +72,48 @@ class Perfil_EmpresaActivity : AppCompatActivity() {
         backButton.setOnClickListener {
             // Voltar à tela anterior ou realizar alguma ação
             onBackPressed()
+            finish()
         }
+    }
+    private fun loadPerfilFromFirestore() {
+        val db = FirebaseFirestore.getInstance()
+        val idUser = FirebaseAuth.getInstance().currentUser?.uid
+
+        if (idUser != null) {
+            perfilListener = db.collection("usuarios")
+                .whereEqualTo("id", idUser)
+                .addSnapshotListener { snapshots, error ->
+                    if (error != null) {
+                        Log.d(VAGA, "Erro ao carregar dados: ${error.message}")
+                        Toast.makeText(this, "Erro ao carregar dados", Toast.LENGTH_SHORT).show()
+                        return@addSnapshotListener
+                    }
+
+                    val perfil_empresa = mutableListOf<Perfil>()
+                    snapshots?.forEach { document ->
+                        val nome_empresa = document.getString("nomeEmpresa") ?: ""
+                        val cnpj = document.getString("cnpj") ?: ""
+                        val endereco = document.getString("endereco") ?: ""
+                        val numero = document.getString("numero") ?: ""
+                        val telefone = document.getString("telefone") ?: ""
+                        val email = document.getString("email") ?: ""
+                        val seguimento = document.getString("seguimento") ?: ""
+                        val perfil = Perfil(nome_empresa, cnpj, endereco,numero, telefone , email, seguimento)
+                        perfil_empresa.add(perfil)
+                    }
+
+                    Log.d("Perfil", "Lista de perfil atualizadas em tempo real: $perfil_empresa")
+                    perfilAdapter.updateData(perfil_empresa) // Atualiza o adapter com os dados em tempo real
+                }
+        } else {
+            Toast.makeText(this, "Usuário não autenticado", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        // Remove o listener para evitar vazamento de memória
+        perfilListener?.remove()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -74,11 +133,13 @@ class Perfil_EmpresaActivity : AppCompatActivity() {
             R.id.perfilNovoServico -> {
                 Intent(this, Cadastrar_VagaActivity::class.java).apply {
                     startActivity(this)
+                    finish()
                 }
             }
             R.id.perfilOrdemServicoEmpresa -> {
                 Intent(this, Ordem_Servico_EmpresaActivity::class.java).apply {
                     startActivity(this)
+                    finish()
                 }
             }
             R.id.perfilSair -> {
