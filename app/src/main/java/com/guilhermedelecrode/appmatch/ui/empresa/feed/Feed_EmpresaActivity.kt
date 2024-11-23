@@ -18,23 +18,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
+import com.guilhermedelecrode.appmatch.AbstractActivity
 import com.guilhermedelecrode.appmatch.R
 import com.guilhermedelecrode.appmatch.adapter.empresa.Feed_EmpresaAdapter
 import com.guilhermedelecrode.appmatch.model.empresa.Vaga
 import com.guilhermedelecrode.appmatch.ui.empresa.ordem_servico.Ordem_Servico_EmpresaActivity
 import com.guilhermedelecrode.appmatch.ui.empresa.perfil.Perfil_EmpresaActivity
 import com.guilhermedelecrode.appmatch.ui.empresa.vagas.Cadastrar_VagaActivity
-class Feed_EmpresaActivity : AppCompatActivity() {
+class Feed_EmpresaActivity : AbstractActivity() {
     private lateinit var feedAdapter: Feed_EmpresaAdapter
     private var vagasListener: ListenerRegistration? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_feed_empresa)
 
-        // Configuração da ActionBar e das cores
-        setupActionBar()
+        // Configurar a ActionBar geral
+        configActionBarGeral()
+        onResume()
 
         // Inicializar RecyclerView e adapter
         val vagaList = mutableListOf<Vaga>()
@@ -49,30 +50,6 @@ class Feed_EmpresaActivity : AppCompatActivity() {
         Log.d("Lista","$vagaList" )
     }
 
-    private fun setupActionBar() {
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
-        window.statusBarColor = Color.parseColor("#00537D")
-        window.navigationBarColor = ContextCompat.getColor(this, R.color.principal)
-
-        supportActionBar?.apply {
-            setDisplayShowHomeEnabled(false)
-            setDisplayShowTitleEnabled(false)
-            val actionBarLayout = layoutInflater.inflate(R.layout.custom_action_bar, null)
-            customView = actionBarLayout
-            setDisplayShowCustomEnabled(true)
-
-            val backButton = actionBarLayout.findViewById<Button>(R.id.action_bar_button)
-            backButton.setOnClickListener {
-                onBackPressed()
-                finish()
-            }
-        }
-    }
     private fun loadVagasFromFirestore() {
         val db = FirebaseFirestore.getInstance()
         val idUser = FirebaseAuth.getInstance().currentUser?.uid

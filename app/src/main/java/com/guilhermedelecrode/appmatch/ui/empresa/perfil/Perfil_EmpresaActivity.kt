@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
+import com.guilhermedelecrode.appmatch.AbstractActivity
 import com.guilhermedelecrode.appmatch.R
 import com.guilhermedelecrode.appmatch.adapter.empresa.Perfil_EmpresaAdapter
 import com.guilhermedelecrode.appmatch.model.empresa.Perfil
@@ -26,19 +27,17 @@ import com.guilhermedelecrode.appmatch.ui.empresa.feed.Feed_EmpresaActivity.Comp
 import com.guilhermedelecrode.appmatch.ui.empresa.ordem_servico.Ordem_Servico_EmpresaActivity
 import com.guilhermedelecrode.appmatch.ui.empresa.vagas.Cadastrar_VagaActivity
 
-class Perfil_EmpresaActivity : AppCompatActivity() {
+class Perfil_EmpresaActivity : AbstractActivity() {
     private lateinit var perfilAdapter: Perfil_EmpresaAdapter
     private var perfilListener: ListenerRegistration? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_perfil_empresa)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+
+        // Configurar a ActionBar geral
+        configActionBarGeral()
+        onResume()
 
         // Inicializar RecyclerView e adapter
         val perfilList = mutableListOf<Perfil>()
@@ -52,28 +51,6 @@ class Perfil_EmpresaActivity : AppCompatActivity() {
         loadPerfilFromFirestore()
         Log.d("Lista","$perfilList" )
         onResume()
-
-        window.statusBarColor = Color.parseColor("#00537D")
-        window.navigationBarColor = ContextCompat.getColor(this, R.color.principal)
-
-        // Habilitar suporte a ActionBar personalizada
-        supportActionBar?.setDisplayShowHomeEnabled(false)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
-
-        // Definir o layout customizado na ActionBar
-        val actionBarLayout = layoutInflater.inflate(R.layout.custom_action_bar, null)
-        supportActionBar?.customView = actionBarLayout
-        supportActionBar?.setDisplayShowCustomEnabled(true)
-
-        // Encontrar o botão no layout customizado da ActionBar
-        val backButton = actionBarLayout.findViewById<Button>(R.id.action_bar_button)
-
-        // Definir ação para o botão Voltar
-        backButton.setOnClickListener {
-            // Voltar à tela anterior ou realizar alguma ação
-            onBackPressed()
-            finish()
-        }
     }
     private fun loadPerfilFromFirestore() {
         val db = FirebaseFirestore.getInstance()
@@ -148,10 +125,5 @@ class Perfil_EmpresaActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
 
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d("MyActivity", "Atividade em execução: ${this::class.java.simpleName}")
     }
 }
