@@ -27,11 +27,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var auth : FirebaseAuth
 
-    private lateinit var edit_email : EditText
-    private lateinit var edit_senha : EditText
-    private lateinit var btn_login : Button
-    private lateinit var txt_cadastro : Text
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
