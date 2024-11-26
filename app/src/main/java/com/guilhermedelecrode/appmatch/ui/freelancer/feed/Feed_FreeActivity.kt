@@ -92,8 +92,10 @@ class Feed_FreeActivity : AbstractActivity() {
                 originalList.add(
                     Vaga(
                         idVaga = idVaga,
-                        idUser = document.getString("idUsuario") ?: "",
+                        idUser = document.getString("idUsuario") ?: "", //id do usuario que criou a vaga
+                        id = "", //ID do usuario logado
                         nomeProjeto = nomeProjeto,
+                        nomeEmpresa = "",
                         descricao = descricao,
                         habilidades = habilidades,
                         email = email,

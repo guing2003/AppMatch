@@ -67,13 +67,15 @@ class Feed_EmpresaActivity : AbstractActivity() {
                     val vagas = mutableListOf<Vaga>()
                     snapshots?.forEach { document ->
                         val idVaga = document.getString("idVaga") ?: ""
-                        val idUser = document.getString("userId") ?: ""
+                        val idUser = document.getString("userId") ?: "" //id de quem criou a vaga
+                        val id = document.getString("id") ?: "" //id do usuario logado
                         val nomeProjeto = document.getString("nomeProjeto") ?: ""
+                        val nomeEmpresa = ""
                         val descricao = document.getString("descricao") ?: ""
                         val habilidades = document.getString("habilidades") ?: ""
                         val email = document.getString("email") ?: ""
                         val valorPago = document.getString("valorPago") ?: ""
-                        val vaga = Vaga(idVaga, idUser, nomeProjeto, descricao, habilidades,email , valorPago)
+                        val vaga = Vaga(idVaga, idUser,id,nomeProjeto,nomeEmpresa, descricao, habilidades,email , valorPago)
                         vagas.add(vaga)
                     }
 

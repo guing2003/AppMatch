@@ -43,6 +43,7 @@ class Feed_FreelancerAdapter( private val context: Context,
         // Configurar botão de detalhes
         holder.btn_detalhes_free.setOnClickListener {
             val intent = Intent(context, Detalhes_Vaga_FreeActivity::class.java)
+            intent.putExtra("idVaga", vaga.idVaga) // 'vaga.id' contém o ID da vaga selecionada
             context.startActivity(intent)
         }
     }

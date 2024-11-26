@@ -1,21 +1,21 @@
 package com.guilhermedelecrode.appmatch.ui.freelancer.vagas
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
-import androidx.activity.enableEdgeToEdge
+import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.firestore.FirebaseFirestore
 import com.guilhermedelecrode.appmatch.AbstractActivity
 import com.guilhermedelecrode.appmatch.R
+import com.guilhermedelecrode.appmatch.adapter.freelancer.DetalhesVagaAdapter
+import com.guilhermedelecrode.appmatch.model.empresa.Vaga
 import com.guilhermedelecrode.appmatch.ui.freelancer.feed.Feed_FreeActivity
 import com.guilhermedelecrode.appmatch.ui.freelancer.ordem_servico.Ordem_Servico_FreeActivity
 import com.guilhermedelecrode.appmatch.ui.freelancer.perfil.Perfil_FreeActivity
@@ -29,28 +29,56 @@ class Detalhes_Vaga_FreeActivity : AbstractActivity() {
         configActionBarGeral()
         onResume()
 
-        //Logica para chamar PopUp de oferta
-        val btn_ofertas_free = findViewById<Button>(R.id.btn_oferta_free)
+        // Recuperar o ID da vaga da intent
+        val idVaga = intent.getStringExtra("idVaga") ?: return
 
-        btn_ofertas_free.setOnClickListener {
-            val dialogView = layoutInflater.inflate(R.layout.dialog_oferta, null)
+        carregarDetalhesVaga(idVaga)
+    }
 
-            val editTextPreco = dialogView.findViewById<EditText>(R.id.editTextPreco)
-            val editTextPrazo = dialogView.findViewById<EditText>(R.id.editTextPrazo)
+    private fun carregarDetalhesVaga(idVaga: String) {
+        val vagasRef = FirebaseFirestore.getInstance().collection("vagas")
+        val empresaRef = FirebaseFirestore.getInstance().collection("usuario")
 
-            AlertDialog.Builder(this)
+        // Buscar os detalhes da vaga
+        vagasRef.document(idVaga).get().addOnSuccessListener { documentSnapshot ->
+            if (documentSnapshot.exists()) {
+                // Converter o documento para o objeto Vaga
+                val vaga = documentSnapshot.toObject(Vaga::class.java)
 
-                .setView(dialogView)
-                .setPositiveButton("Enviar") { dialog, which ->
-                    val preco = editTextPreco.text.toString()
-                    val prazo = editTextPrazo.text.toString()
-                    // Aqui você pode tratar as entradas do usuário
+                if (vaga != null) {
+                    // Buscar o idUser na vaga para obter o nome da empresa
+                    val idUser = vaga.idUser // Supondo que o campo que armazena o idUser seja idUser
+                    empresaRef.document(idUser).get().addOnSuccessListener { empresaSnapshot ->
+                        // Obter o nome da empresa
+                        var nomeEmpresa = empresaSnapshot.getString("nomeEmpresa") ?: "Empresa Desconhecida"
+
+                        // Atualizar o nome da empresa na vaga
+                        vaga.nomeEmpresa = nomeEmpresa
+
+                        // Logs adicionais para depuração
+
+                        Log.d("DetalhesVaga", "IdUser: $idUser")
+                        Log.d("DetalhesVaga", "Nome da empresa carregado: $nomeEmpresa")
+                        Log.d("DetalhesVaga","EmpresaSnapshot Data: ${empresaSnapshot.data}")
+
+                        // Configurar o RecyclerView com os dados da vaga
+                        val recyclerView = findViewById<RecyclerView>(R.id.rv_descricao_vaga)
+                        recyclerView.layoutManager = LinearLayoutManager(this)
+                        recyclerView.adapter = DetalhesVagaAdapter(this, mutableListOf(vaga))
+                    }.addOnFailureListener {
+                        Toast.makeText(this, "Erro ao carregar informações da empresa.", Toast.LENGTH_SHORT).show()
+                    }
                 }
-                .setNegativeButton("Cancelar", null)
-                .create()
-                .show()
+            } else {
+                Toast.makeText(this, "Detalhes da vaga não encontrados.", Toast.LENGTH_SHORT).show()
+            }
+        }.addOnFailureListener { exception ->
+            Toast.makeText(this, "Erro ao carregar detalhes: ${exception.message}", Toast.LENGTH_SHORT).show()
         }
     }
+
+
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_item_detalhes_vagas_free, menu)
