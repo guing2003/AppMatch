@@ -28,6 +28,7 @@ import com.guilhermedelecrode.appmatch.adapter.empresa.Feed_EmpresaAdapter
 import com.guilhermedelecrode.appmatch.adapter.freelancer.Feed_FreelancerAdapter
 import com.guilhermedelecrode.appmatch.model.empresa.Vaga
 import com.guilhermedelecrode.appmatch.ui.empresa.feed.Feed_EmpresaActivity.Companion.VAGA
+import com.guilhermedelecrode.appmatch.ui.empresa.perfil.Perfil_EmpresaActivity
 import com.guilhermedelecrode.appmatch.ui.freelancer.ordem_servico.Ordem_Servico_FreeActivity
 import com.guilhermedelecrode.appmatch.ui.freelancer.perfil.Perfil_FreeActivity
 import com.guilhermedelecrode.appmatch.ui.freelancer.vagas.Detalhes_Vaga_FreeActivity
@@ -145,12 +146,9 @@ class Feed_FreeActivity : AbstractActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.perfilFree -> {
-                Intent(this, Perfil_FreeActivity::class.java).apply {
-                    startActivity(this)
-                }
-                return true
+                startActivity(Intent(this, Perfil_FreeActivity::class.java))
             }
-            R.id.ordemServicoFree ->{
+            R.id.ordemServicoFree -> {
                 Intent(this, Ordem_Servico_FreeActivity::class.java).apply {
                     startActivity(this)
                 }

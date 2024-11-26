@@ -1,6 +1,6 @@
 package com.guilhermedelecrode.appmatch.model.empresa
 
-data class Perfil(
+data class PerfilEmpresa(
     val nome_empresa: String,
     val cnpj: String,
     val endereco: String,

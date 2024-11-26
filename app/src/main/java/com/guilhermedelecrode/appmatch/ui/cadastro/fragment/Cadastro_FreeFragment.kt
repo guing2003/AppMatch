@@ -38,24 +38,26 @@ class Cadastro_FreeFragment: Fragment(){
             val senha: String = view.findViewById<EditText>(R.id.edit_senha_free).text.toString()
             val nome: String = view.findViewById<EditText>(R.id.edit_nome_free).text.toString()
             val cpf: String = view.findViewById<EditText>(R.id.edit_cpf).text.toString()
+            val endereco : String = view.findViewById<EditText>(R.id.edit_endereco_free).text.toString()
+            val numero : String = view.findViewById<EditText>(R.id.edit_numero_free).text.toString()
             val telefone: String = view.findViewById<EditText>(R.id.edit_telefone_free).text.toString()
             val tipoUsuario: String = "freelancer"
 
             if (email.isNotEmpty() && senha.isNotEmpty()) {
-                createUserWithEmailAndPassword(email, senha, nome, cpf, telefone, tipoUsuario)
+                createUserWithEmailAndPassword(email, senha, nome, cpf,endereco, numero, telefone, tipoUsuario)
             } else {
                 Toast.makeText(requireContext(), "Por favor, preencha os campos", Toast.LENGTH_SHORT).show()
             }
         }
         return view
     }
-    private fun createUserWithEmailAndPassword(email: String, senha: String, nome: String, cpf: String, telefone: String,  tipoUsuario: String) {
+    private fun createUserWithEmailAndPassword(email: String, senha: String, nome: String, cpf: String, endereco: String, numero : String, telefone: String,  tipoUsuario: String) {
         auth.createUserWithEmailAndPassword(email, senha).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 Log.d(TAG, "createUserWithEmailAndPassword: Success")
                 val user = auth.currentUser
                 user?.let{
-                    saveUserData(it.uid,email, nome, cpf, telefone, tipoUsuario )
+                    saveUserData(it.uid,email, nome, cpf,endereco, numero, telefone, tipoUsuario )
                 }
                 val intent = Intent(requireActivity(), MainActivity::class.java)
                 startActivity(intent)
@@ -73,13 +75,15 @@ class Cadastro_FreeFragment: Fragment(){
         }
     }
 
-    private fun saveUserData(uid: String, email: String,nome:String, cpf: String,telefone: String, tipoUsuario: String) {
+    private fun saveUserData(uid: String, email: String,nome:String, cpf: String, endereco: String, numero: String, telefone: String, tipoUsuario: String) {
         // Cria um mapa com os dados que serão salvos no Firestore
         val userData = hashMapOf(
             "id" to uid,
             "email" to email,
             "nome" to nome,
             "cpf" to cpf,
+            "endereco" to endereco,
+            "numero" to numero,
             "telefone" to telefone,
             "tipoUsuario" to tipoUsuario
         )

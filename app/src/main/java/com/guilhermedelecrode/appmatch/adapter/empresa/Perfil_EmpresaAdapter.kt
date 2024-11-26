@@ -9,11 +9,11 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.guilhermedelecrode.appmatch.R
-import com.guilhermedelecrode.appmatch.model.empresa.Perfil
+import com.guilhermedelecrode.appmatch.model.empresa.PerfilEmpresa
 import com.guilhermedelecrode.appmatch.ui.empresa.perfil.Edit_Perfil_EmpresaActivity
 
 
-class Perfil_EmpresaAdapter(private val perfilList: MutableList<Perfil>,
+class Perfil_EmpresaAdapter(private val perfilList: MutableList<PerfilEmpresa>,
                             private val context: Context
 ) : RecyclerView.Adapter<Perfil_EmpresaAdapter.perfilViewHolder>() {
 
@@ -53,7 +53,7 @@ class Perfil_EmpresaAdapter(private val perfilList: MutableList<Perfil>,
 
     override fun getItemCount(): Int = perfilList.size
 
-    fun updateData(newPerfilList: List<Perfil>) {
+    fun updateData(newPerfilList: List<PerfilEmpresa>) {
         perfilList.clear()
         perfilList.addAll(newPerfilList)
         notifyDataSetChanged()

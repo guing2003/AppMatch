@@ -96,31 +96,11 @@
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout6"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:paddingStart="15dp"
-        android:paddingEnd="170dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_telefone_free"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Telefone"
-            android:inputType="phone" />
-    </com.google.android.material.textfield.TextInputLayout>
-
     <Button
         android:id="@+id/btn_cadastro_free"
         android:layout_width="wrap_content"
         android:layout_height="54dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:backgroundTint="#00547D"
         android:text="Cadastrar"
         android:textStyle="bold"
@@ -144,6 +124,57 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Digite a sua senha:" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout23"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_endereco_free"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Endereço:" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        app:layout_constraintStart_toEndOf="@+id/textInputLayout23"
+        app:layout_constraintTop_toTopOf="@+id/textInputLayout23">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_numero_free"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Numero:" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout6"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="170dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout23">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_telefone_free"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Telefone"
+            android:inputType="phone" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

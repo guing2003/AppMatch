@@ -1,18 +1,11 @@
 package com.guilhermedelecrode.appmatch.ui.empresa.perfil
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
@@ -21,7 +14,7 @@ import com.google.firebase.firestore.ListenerRegistration
 import com.guilhermedelecrode.appmatch.AbstractActivity
 import com.guilhermedelecrode.appmatch.R
 import com.guilhermedelecrode.appmatch.adapter.empresa.Perfil_EmpresaAdapter
-import com.guilhermedelecrode.appmatch.model.empresa.Perfil
+import com.guilhermedelecrode.appmatch.model.empresa.PerfilEmpresa
 import com.guilhermedelecrode.appmatch.ui.empresa.feed.Feed_EmpresaActivity
 import com.guilhermedelecrode.appmatch.ui.empresa.feed.Feed_EmpresaActivity.Companion.VAGA
 import com.guilhermedelecrode.appmatch.ui.empresa.ordem_servico.Ordem_Servico_EmpresaActivity
@@ -40,10 +33,10 @@ class Perfil_EmpresaActivity : AbstractActivity() {
         onResume()
 
         // Inicializar RecyclerView e adapter
-        val perfilList = mutableListOf<Perfil>()
+        val perfilList = mutableListOf<PerfilEmpresa>()
         perfilAdapter = Perfil_EmpresaAdapter(perfilList, this)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.rv_perfil)
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_perfil_empresa)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = perfilAdapter
 
@@ -66,7 +59,7 @@ class Perfil_EmpresaActivity : AbstractActivity() {
                         return@addSnapshotListener
                     }
 
-                    val perfil_empresa = mutableListOf<Perfil>()
+                    val perfil_empresa = mutableListOf<PerfilEmpresa>()
                     snapshots?.forEach { document ->
                         val nome_empresa = document.getString("nomeEmpresa") ?: ""
                         val cnpj = document.getString("cnpj") ?: ""
@@ -75,7 +68,7 @@ class Perfil_EmpresaActivity : AbstractActivity() {
                         val telefone = document.getString("telefone") ?: ""
                         val email = document.getString("email") ?: ""
                         val seguimento = document.getString("seguimento") ?: ""
-                        val perfil = Perfil(nome_empresa, cnpj, endereco,numero, telefone , email, seguimento)
+                        val perfil = PerfilEmpresa(nome_empresa, cnpj, endereco,numero, telefone , email, seguimento)
                         perfil_empresa.add(perfil)
                     }
 

@@ -14,16 +14,15 @@ import androidx.core.view.WindowInsetsCompat
 class SplashScreenActivity : AbstractActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_splash_screen)
 
         // Configurar a ActionBar geral
-        configActionBarGeral()
+        configActionBarLogin()
 
 
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
-            finish()
-        },10000)
+        },3000)
     }
 }

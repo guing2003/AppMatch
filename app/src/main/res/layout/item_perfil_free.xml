@@ -1,0 +1,75 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="9dp">
+
+    <TextView
+        android:id="@+id/txt_nome_free"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Nome:"
+        android:textAlignment="textStart"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/txt_cpf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="CPF:"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/txt_endereco_free"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Endereço:"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/txt_email_free"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Email:"
+        android:textAlignment="textStart"
+        android:textSize="20sp" />
+
+
+    <TextView
+        android:id="@+id/txt_telefone_free"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Telefone:"
+        android:textAlignment="textStart"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/txt_descricao_free"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Resumo Profissional:"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+        <Button
+            android:id="@+id/btn_editar_perfil_free"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/Buttons"
+            android:text="Editar Perfil"
+            android:textColor="@color/white"
+            />
+    </LinearLayout>
+</LinearLayout>
