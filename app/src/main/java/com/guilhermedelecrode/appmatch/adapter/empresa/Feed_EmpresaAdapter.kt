@@ -2,6 +2,7 @@ package com.guilhermedelecrode.appmatch.adapter.empresa
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,17 +11,20 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.guilhermedelecrode.appmatch.R
 import com.guilhermedelecrode.appmatch.model.empresa.Vaga
+import com.guilhermedelecrode.appmatch.ui.empresa.ofertas.Ofertas_Enviadas_EmpresaActivity
+
 class Feed_EmpresaAdapter(private val context: Context,
                           private val vagaList: MutableList<Vaga>) : RecyclerView.Adapter<Feed_EmpresaAdapter.feedViewHolder>() {
 
 
      inner class feedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val txt_nome_projeto: TextView = itemView.findViewById(R.id.txt_nome_projeto)
+        val txt_nome_projeto_empresa: TextView = itemView.findViewById(R.id.txt_nome_projeto_empresa)
         val txt_descricao: TextView = itemView.findViewById(R.id.txt_descricao_vaga)
         val txt_habilidade: TextView = itemView.findViewById(R.id.txt_habilidades)
         val txt_email : TextView = itemView.findViewById(R.id.txt_email)
@@ -37,11 +41,26 @@ class Feed_EmpresaAdapter(private val context: Context,
 
     override fun onBindViewHolder(holder: feedViewHolder, position: Int) {
         val vaga = vagaList[position]
-        holder.txt_nome_projeto.text = "Nome do projeto: ${vaga.nomeProjeto}"
+
+        Log.d("FeedAdapter", "Nome do Projeto: ${vaga.nomeProjeto}")
+        Log.d("FeedAdapter", "Descrição: ${vaga.descricao}")
+        Log.d("FeedAdapter", "Habilidades: ${vaga.habilidades}")
+        Log.d("FeedAdapter", "Email: ${vaga.email}")
+        Log.d("FeedAdapter", "Valor Pago: ${vaga.valorPago}")
+
+        holder.txt_nome_projeto_empresa.text = "Nome do projeto: ${vaga.nomeProjeto}"
         holder.txt_descricao.text = "Descrição: ${vaga.descricao}"
         holder.txt_habilidade.text = "Habilidades: ${vaga.habilidades}"
         holder.txt_email.text = "Email: ${vaga.email}"
         holder.txt_valor_Pago.text = "Valor Proposto: R$${vaga.valorPago}"
+
+        holder.btn_proposta.setOnClickListener {
+            val intent = Intent(context, Ofertas_Enviadas_EmpresaActivity::class.java)
+            intent.putExtra("idVaga", vaga.idVaga)
+            intent.putExtra("idUser", vaga.idUser)
+            context.startActivity(intent)
+
+        }
 
 
         holder.img_editar_vaga.setOnClickListener {

@@ -5,10 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
@@ -37,7 +34,7 @@ class Detalhes_Vaga_FreeActivity : AbstractActivity() {
 
     private fun carregarDetalhesVaga(idVaga: String) {
         val vagasRef = FirebaseFirestore.getInstance().collection("vagas")
-        val empresaRef = FirebaseFirestore.getInstance().collection("usuario")
+        val usuariosRef = FirebaseFirestore.getInstance().collection("usuarios")
 
         // Buscar os detalhes da vaga
         vagasRef.document(idVaga).get().addOnSuccessListener { documentSnapshot ->
@@ -48,18 +45,17 @@ class Detalhes_Vaga_FreeActivity : AbstractActivity() {
                 if (vaga != null) {
                     // Buscar o idUser na vaga para obter o nome da empresa
                     val idUser = vaga.idUser // Supondo que o campo que armazena o idUser seja idUser
-                    empresaRef.document(idUser).get().addOnSuccessListener { empresaSnapshot ->
+                    usuariosRef.document(idUser).get().addOnSuccessListener { usuarioSnapshot ->
                         // Obter o nome da empresa
-                        var nomeEmpresa = empresaSnapshot.getString("nomeEmpresa") ?: "Empresa Desconhecida"
+                        val nomeEmpresa = usuarioSnapshot.getString("nomeEmpresa") ?: "Empresa Desconhecida"
 
                         // Atualizar o nome da empresa na vaga
                         vaga.nomeEmpresa = nomeEmpresa
 
                         // Logs adicionais para depuração
-
                         Log.d("DetalhesVaga", "IdUser: $idUser")
                         Log.d("DetalhesVaga", "Nome da empresa carregado: $nomeEmpresa")
-                        Log.d("DetalhesVaga","EmpresaSnapshot Data: ${empresaSnapshot.data}")
+                        Log.d("DetalhesVaga", "UsuarioSnapshot Data: ${usuarioSnapshot.data}")
 
                         // Configurar o RecyclerView com os dados da vaga
                         val recyclerView = findViewById<RecyclerView>(R.id.rv_descricao_vaga)
@@ -76,9 +72,6 @@ class Detalhes_Vaga_FreeActivity : AbstractActivity() {
             Toast.makeText(this, "Erro ao carregar detalhes: ${exception.message}", Toast.LENGTH_SHORT).show()
         }
     }
-
-
-
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_item_detalhes_vagas_free, menu)
@@ -109,6 +102,5 @@ class Detalhes_Vaga_FreeActivity : AbstractActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
-
     }
 }

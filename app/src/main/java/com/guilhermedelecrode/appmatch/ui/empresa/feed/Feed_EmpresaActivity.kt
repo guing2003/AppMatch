@@ -67,25 +67,37 @@ class Feed_EmpresaActivity : AbstractActivity() {
                     val vagas = mutableListOf<Vaga>()
                     snapshots?.forEach { document ->
                         val idVaga = document.getString("idVaga") ?: ""
-                        val idUser = document.getString("userId") ?: "" //id de quem criou a vaga
-                        val id = document.getString("id") ?: "" //id do usuario logado
+                        val idUser = document.getString("idUser") ?: ""
+                        val id = document.getString("id") ?: ""
                         val nomeProjeto = document.getString("nomeProjeto") ?: ""
-                        val nomeEmpresa = ""
+                        val nomeEmpresa = document.getString("nomeEmpresa") ?: ""
                         val descricao = document.getString("descricao") ?: ""
                         val habilidades = document.getString("habilidades") ?: ""
                         val email = document.getString("email") ?: ""
                         val valorPago = document.getString("valorPago") ?: ""
-                        val vaga = Vaga(idVaga, idUser,id,nomeProjeto,nomeEmpresa, descricao, habilidades,email , valorPago)
+
+                        Log.d(VAGA, "ID Vaga: $idVaga")
+                        Log.d(VAGA, "ID User: $idUser")
+                        Log.d(VAGA, "ID Freelancer: $id")
+                        Log.d(VAGA, "Nome Projeto: $nomeProjeto")
+                        Log.d(VAGA, "Nome Empresa: $nomeEmpresa")
+                        Log.d(VAGA, "Descrição: $descricao")
+                        Log.d(VAGA, "Habilidades: $habilidades")
+                        Log.d(VAGA, "Email: $email")
+                        Log.d(VAGA, "Valor Pago: $valorPago")
+
+                        val vaga = Vaga(idVaga, idUser, id, nomeEmpresa, nomeProjeto, descricao, habilidades, email, valorPago)
                         vagas.add(vaga)
                     }
 
                     Log.d("Vagas", "Lista de vagas atualizadas em tempo real: $vagas")
-                    feedAdapter.updateData(vagas) // Atualiza o adapter com os dados em tempo real
+                    feedAdapter.updateData(vagas)
                 }
         } else {
             Toast.makeText(this, "Usuário não autenticado", Toast.LENGTH_SHORT).show()
         }
     }
+
 
     override fun onDestroy() {
         super.onDestroy()

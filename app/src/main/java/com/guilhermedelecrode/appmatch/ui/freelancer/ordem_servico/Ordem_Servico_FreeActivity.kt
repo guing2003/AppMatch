@@ -19,13 +19,26 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.guilhermedelecrode.appmatch.AbstractActivity
 import com.guilhermedelecrode.appmatch.R
+import com.guilhermedelecrode.appmatch.adapter.freelancer.OrdensServicoFreelancerAdapter
+import com.guilhermedelecrode.appmatch.model.freelancer.OrdemServico
 import com.guilhermedelecrode.appmatch.ui.freelancer.feed.Feed_FreeActivity
 import com.guilhermedelecrode.appmatch.ui.freelancer.perfil.Perfil_FreeActivity
 import kotlin.math.log
 
 class Ordem_Servico_FreeActivity : AbstractActivity() {
+
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var adapter: OrdensServicoFreelancerAdapter
+    private val ordensServico = mutableListOf<OrdemServico>()
+    private lateinit var auth: FirebaseAuth
+    private lateinit var userId: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ordem_servico_free)
@@ -34,37 +47,34 @@ class Ordem_Servico_FreeActivity : AbstractActivity() {
         configActionBarGeral()
         onResume()
 
-        // Encontre a ImageView no layout
-        val btn_editar_ordem_servico_free = findViewById<Button>(R.id.btn_editar_ordem_servico_free)
+        auth = FirebaseAuth.getInstance()
+        userId = auth.currentUser?.uid ?: ""
 
-        btn_editar_ordem_servico_free.setOnClickListener {
-            // Inflate o layout do dialog
-            val dialogView = layoutInflater.inflate(R.layout.dialog_status_ordem_servico, null)
+        recyclerView = findViewById(R.id.rv_ordem_servico_free)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        adapter = OrdensServicoFreelancerAdapter(this, ordensServico)
+        recyclerView.adapter = adapter
+        loadOrdensServico()
 
-            // Localize o Spinner no layout do dialog
-            val spinner = dialogView.findViewById<Spinner>(R.id.spinnerStatus)
-
-            // Crie um ArrayAdapter para o Spinner com as opções de status
-            val options = arrayOf("Em andamento", "Concluído", "Cancelada")
-            val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, options)
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            spinner.adapter = adapter
-
-            // Crie o AlertDialog
-            AlertDialog.Builder(this)
-                .setTitle("Status: ordem de serviço")
-                .setView(dialogView)
-                .setPositiveButton("Salvar") { dialog, which ->
-                    val selectedStatus = spinner.selectedItem.toString()
-                    // Aqui você pode tratar a opção selecionada
-                    Toast.makeText(this, "Status selecionado: $selectedStatus", Toast.LENGTH_SHORT).show()
-                }
-                .setNegativeButton("Cancelar", null)
-                .create()
-                .show()
-        }
     }
 
+    private fun loadOrdensServico() {
+        val db = FirebaseFirestore.getInstance()
+        db.collection("ordemServicos")
+            .whereEqualTo("idUserFree", userId)
+            .get().addOnSuccessListener { querySnapshot ->
+                val ordens =
+                    querySnapshot.documents.mapNotNull { it.toObject(OrdemServico::class.java) }
+                ordensServico.addAll(ordens)
+                adapter.notifyDataSetChanged()
+            }.addOnFailureListener { e ->
+                Toast.makeText(
+                    this,
+                    "Erro ao carregar ordens de serviço: ${e.message}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+    }
 
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -85,6 +95,7 @@ class Ordem_Servico_FreeActivity : AbstractActivity() {
                     startActivity(this)
                 }
             }
+
             R.id.sair -> {
                 finishAffinity()
             }
