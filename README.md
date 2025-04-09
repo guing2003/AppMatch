@@ -13,5 +13,3 @@ Tecnologias Utilizadas
 Kotlin: Linguagem principal para o desenvolvimento Android.
 Android Studio: IDE usada para o desenvolvimento do projeto.
 Firebase: Para autenticação e gerenciamento de banco de dados.
-
-Em breve link do APK para testes!
