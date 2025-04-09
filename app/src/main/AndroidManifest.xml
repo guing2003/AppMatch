@@ -25,43 +25,43 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.empresa.vagas.Cadastrar_VagaActivity"
+            android:name=".ui.empresa.vagas.CadastrarVagaActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.empresa.perfil.Edit_Perfil_EmpresaActivity"
+            android:name=".ui.empresa.perfil.EditarPerfilEmpresaActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.empresa.perfil.Perfil_EmpresaActivity"
+            android:name=".ui.empresa.perfil.PerfilEmpresaActivity"
             android:exported="false" />
         <activity
             android:name=".ui.cadastro.CadastroActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.freelancer.perfil.Perfil_FreeActivity"
+            android:name=".ui.freelancer.perfil.PerfilFreelancerActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.freelancer.perfil.Edit_Perfil_FreeActivity"
+            android:name=".ui.freelancer.perfil.EditarPerfilFreelancerActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.freelancer.vagas.Detalhes_Vaga_FreeActivity"
+            android:name=".ui.freelancer.vagas.DetalhesVagaFreelancerActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.empresa.feed.Feed_EmpresaActivity"
+            android:name=".ui.empresa.feed.FeedEmpresaActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.empresa.ordem_servico.Ordem_Servico_EmpresaActivity"
+            android:name=".ui.empresa.ordem_servico.OrdemServicoEmpresaActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.freelancer.feed.Feed_FreeActivity"
+            android:name=".ui.freelancer.feed.FeedFreelancerActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.freelancer.ordem_servico.Ordem_Servico_FreeActivity"
+            android:name=".ui.freelancer.ordem_servico.OrdemServicoFreelancerActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.empresa.ofertas.Ofertas_Enviadas_EmpresaActivity"
+            android:name=".ui.empresa.ofertas.OfertasEmpresaActivity"
             android:exported="false" />
         <activity
-            android:name=".SplashScreenActivity"
+            android:name=".ui.cadastro.SplashScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -11,14 +11,14 @@
         android:id="@+id/textInputLayout13"
         android:layout_width="300dp"
         android:layout_height="0dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_endereco_empresa"
+            android:id="@+id/edit_endereco_free"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Endereço" />
@@ -34,7 +34,7 @@
         app:layout_constraintTop_toTopOf="@+id/textInputLayout13">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_numero_empresa"
+            android:id="@+id/edit_numero_free"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="N°" />
@@ -50,7 +50,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout15"/>
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout15">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_descricao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Resumo Profissional" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btn_cancelar_edit_empresa"
@@ -58,7 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="74dp"
         android:layout_marginTop="32dp"
-        android:backgroundTint="#00547D"
+        android:backgroundTint="#00537D"
         android:text="Cancelar"
         android:textColor="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/btn_salvar_edit_empresa"
@@ -92,7 +99,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout13">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_telefone_empresa"
+            android:id="@+id/edit_telefone_free"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Telefone"

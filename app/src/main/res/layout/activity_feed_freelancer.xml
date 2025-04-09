@@ -5,57 +5,58 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
-
+    tools:context=".ui.freelancer.feed.FeedFreelancerActivity">
 
     <TextView
-        android:id="@+id/txt_vagas_cadastradas"
+        android:id="@+id/textView47"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:backgroundTint="#000000"
         android:fontFamily="@font/abeezee"
-        android:text="Suas Vagas Cadastradas"
+        android:text="Vagas disponíveis"
         android:textColor="#00537D"
         android:textSize="20sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
     <EditText
-        android:id="@+id/edit_search"
-        android:layout_width="0dp"
+        android:id="@+id/edit_buscar_habilidade"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_weight="1"
-        android:hint="Buscar por habilidades ou projeto"
+        android:hint="Buscar por habilidades"
         android:inputType="text"
-        android:padding="8dp"
+        android:padding="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_vagas_cadastradas" />
+        app:layout_constraintTop_toBottomOf="@+id/textView47" />
 
     <Button
-        android:id="@+id/btn_search"
+        android:id="@+id/btn_buscar_habilidade"
         android:layout_width="50dp"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:background="?android:attr/actionModeWebSearchDrawable"
         android:backgroundTint="@color/black"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/edit_search"
-        app:layout_constraintTop_toTopOf="@+id/edit_search" />
+        app:layout_constraintStart_toEndOf="@+id/edit_buscar_habilidade"
+        app:layout_constraintTop_toTopOf="@+id/edit_buscar_habilidade" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_feed"
-        android:layout_width="409dp"
+        android:id="@+id/rv_feed_free"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_search"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_buscar_habilidade" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

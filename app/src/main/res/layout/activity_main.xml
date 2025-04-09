@@ -91,7 +91,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txt_recuperar_senha"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -108,12 +108,13 @@
         android:layout_marginTop="34dp"
         android:backgroundTint="#00537D"
         android:text="Entrar"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_recuperar_senha" />
 
     <TextView
         android:id="@+id/txt_cadastro"
@@ -130,11 +131,14 @@
         android:id="@+id/textInputLayout"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="1dp"
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        tools:layout_editor_absoluteX="1dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_email_empresa"

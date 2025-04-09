@@ -27,6 +27,7 @@
         android:layout_marginTop="24dp"
         android:backgroundTint="#00537D"
         android:text="FREELANCER"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -36,14 +37,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="64dp"
-        android:backgroundTint="#9C035181"
+        android:backgroundTint="#00537D"
         android:text="EMPRESA"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentCadastro"
-        android:name="com.guilhermedelecrode.appmatch.ui.cadastro.fragment.Cadastro_FreeFragment"
+        android:name="com.guilhermedelecrode.appmatch.ui.cadastro.fragment.CadastroFreelancerFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,7 +54,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        tools:layout="@layout/fragment_cadastro_free" />
+        tools:layout="@layout/fragment_cadastro_freelancer" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

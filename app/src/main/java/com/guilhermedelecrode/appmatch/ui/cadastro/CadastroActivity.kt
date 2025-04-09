@@ -1,19 +1,12 @@
 package com.guilhermedelecrode.appmatch.ui.cadastro
 
 import android.annotation.SuppressLint
-import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.guilhermedelecrode.appmatch.AbstractActivity
+import com.guilhermedelecrode.appmatch.common.AbstractActivity
 import com.guilhermedelecrode.appmatch.R
-import com.guilhermedelecrode.appmatch.ui.cadastro.fragment.Cadastro_EmpresaFragment
-import com.guilhermedelecrode.appmatch.ui.cadastro.fragment.Cadastro_FreeFragment
+import com.guilhermedelecrode.appmatch.ui.cadastro.fragment.CadastroEmpresaFragment
+import com.guilhermedelecrode.appmatch.ui.cadastro.fragment.CadastroFreelancerFragment
 
 class CadastroActivity : AbstractActivity() {
 
@@ -43,8 +36,8 @@ class CadastroActivity : AbstractActivity() {
         fragmentManager.commit()
         */
 
-        val freeFragment = Cadastro_FreeFragment()
-        val empresaFragment = Cadastro_EmpresaFragment()
+        val freeFragment = CadastroFreelancerFragment()
+        val empresaFragment = CadastroEmpresaFragment()
 
         btn_freelance.setOnClickListener {
             supportFragmentManager

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.empresa.vagas.Cadastrar_VagaActivity">
+    tools:context=".ui.empresa.vagas.CadastrarVagaActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout16"
@@ -63,17 +63,6 @@
             android:hint="Habilidades necessárias:" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Spinner
-        android:id="@+id/spinner_cadastro_vagas"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:paddingStart="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout18" />
-
     <TextView
         android:id="@+id/txt_vaga"
         android:layout_width="wrap_content"
@@ -99,7 +88,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner_cadastro_vagas">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout18">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edit_email_vaga"
@@ -114,8 +103,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:backgroundTint="#00547D"
+        android:backgroundTint="#00537D"
         android:text="Cadastrar nova vaga"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

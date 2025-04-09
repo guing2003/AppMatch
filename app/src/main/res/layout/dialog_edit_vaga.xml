@@ -69,15 +69,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
-    <Button
-        android:id="@+id/btn_salvar_edit_vaga"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Salvar" />
+
         <Button
-        android:id="@+id/btn_cancelar_edit_vaga"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="cancelar" />
+            android:id="@+id/btn_salvar_edit_vaga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/Buttons"
+            android:text="Salvar"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btn_cancelar_edit_vaga"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:backgroundTint="@color/Buttons"
+            android:text="cancelar"
+            android:textColor="@color/white" />
     </LinearLayout>
 </LinearLayout>
