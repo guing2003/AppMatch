@@ -25,17 +25,17 @@ class MainActivity : AbstractActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Configurar a ActionBar geral
         configActionBarLogin()
 
         auth = Firebase.auth
 
-        val btn_login = findViewById<Button>(R.id.btn_login)
+        val btn_login = findViewById<Button>(R.id.btn_login_acitivity_main)
 
         btn_login.setOnClickListener {
-            // Obtendo os valores dos campos EditText corretamente
-            val email: String = findViewById<EditText>(R.id.edit_email_empresa).text.toString()
-            val senha: String = findViewById<EditText>(R.id.edit_senha).text.toString()
+            val email: String =
+                findViewById<EditText>(R.id.edit_email_acitivity_main).text.toString()
+            val senha: String =
+                findViewById<EditText>(R.id.edit_senha_acitivity_main).text.toString()
 
             if (email.isNotEmpty() && senha.isNotEmpty()) {
                 signInWithEmailAndPassword(email, senha)
@@ -48,19 +48,17 @@ class MainActivity : AbstractActivity() {
             }
         }
 
-        //Logica para chamar outra tela
-        val txt_Cadastro = findViewById<TextView>(R.id.txt_cadastro)
+        val txt_Cadastro = findViewById<TextView>(R.id.txt_cadastro_acitivity_main)
         txt_Cadastro.setOnClickListener {
             val intent = Intent(this, CadastroActivity::class.java)
             startActivity(intent)
         }
 
-        val txt_recuperar_senhaa: TextView = findViewById(R.id.txt_recuperar_senha)
-        //Logica para recuperar senha
+        val txt_recuperar_senhaa: TextView = findViewById(R.id.txt_recuperar_senha_acitivity_main)
         txt_recuperar_senhaa.setOnClickListener {
             Log.d("Listener", "Clicou no listener")
             val email: String =
-                findViewById<EditText>(R.id.edit_email_empresa).text.toString()
+                findViewById<EditText>(R.id.edit_email_acitivity_main).text.toString()
             if (email.isNotEmpty()) {
                 sendPasswordResetEmail(email)
                 Log.d("Email", "Email: ${email}")
@@ -93,7 +91,6 @@ class MainActivity : AbstractActivity() {
         auth.signInWithEmailAndPassword(email, senha).addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 Log.d(TAG, "signInWithEmailAndPassword: Success")
-                // Após o login bem-sucedido, buscar o tipo de usuário
                 getUserDataAndRedirect(email)
             } else {
                 Log.d(TAG, "signInWithEmailAndPassword: Failure", task.exception)
@@ -104,17 +101,14 @@ class MainActivity : AbstractActivity() {
 
     private fun getUserDataAndRedirect(email: String) {
         val db = FirebaseFirestore.getInstance()
-        // Realiza uma consulta na tabela "usuarios" onde o campo "email" é igual ao email fornecido
         db.collection("usuarios")
             .whereEqualTo("email", email)
             .get()
             .addOnSuccessListener { documents ->
                 if (!documents.isEmpty) {
                     for (document in documents) {
-                        // Obtém o valor do campo "tipoUsuario"
                         val tipoUsuario = document.getString("tipoUsuario")
 
-                        // Verifica o tipo de usuário e redireciona para a tela correspondente
                         when (tipoUsuario) {
                             "empresa" -> {
                                 val intent = Intent(this, FeedEmpresaActivity::class.java)
@@ -139,7 +133,6 @@ class MainActivity : AbstractActivity() {
                         }
                     }
                 } else {
-                    // Caso não encontre nenhum documento com o email fornecido
                     Log.d(DB, "Nenhum usuário encontrado com esse email")
                     Toast.makeText(
                         this,
@@ -149,7 +142,6 @@ class MainActivity : AbstractActivity() {
                 }
             }
             .addOnFailureListener { exception ->
-                // Tratar o erro na consulta
                 Log.w(DB, "Erro ao buscar usuário: ", exception)
                 Toast.makeText(this, "Erro ao buscar usuário", Toast.LENGTH_SHORT).show()
             }

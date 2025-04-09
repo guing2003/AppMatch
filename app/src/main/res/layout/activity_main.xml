@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView_Logo_acitivity_main"
         android:layout_width="356dp"
         android:layout_height="93dp"
         android:layout_marginTop="15dp"
@@ -29,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView_Logo_acitivity_main" />
 
     <TextView
         android:id="@+id/textView4"
@@ -69,7 +69,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_senha"
+            android:id="@+id/edit_senha_acitivity_main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="8dp"
@@ -91,7 +91,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
-        android:id="@+id/txt_recuperar_senha"
+        android:id="@+id/txt_recuperar_senha_acitivity_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -102,7 +102,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
 
     <Button
-        android:id="@+id/btn_login"
+        android:id="@+id/btn_login_acitivity_main"
         android:layout_width="150dp"
         android:layout_height="55dp"
         android:layout_marginTop="34dp"
@@ -114,10 +114,10 @@
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_recuperar_senha" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_recuperar_senha_acitivity_main" />
 
     <TextView
-        android:id="@+id/txt_cadastro"
+        android:id="@+id/txt_cadastro_acitivity_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -125,7 +125,7 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_login_acitivity_main" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout"
@@ -141,7 +141,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_email_empresa"
+            android:id="@+id/edit_email_acitivity_main"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email" />
