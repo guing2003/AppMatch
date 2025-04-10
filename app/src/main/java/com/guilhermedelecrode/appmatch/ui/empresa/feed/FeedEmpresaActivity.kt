@@ -19,6 +19,7 @@ import com.guilhermedelecrode.appmatch.model.empresa.Vaga
 import com.guilhermedelecrode.appmatch.ui.empresa.ordem_servico.OrdemServicoEmpresaActivity
 import com.guilhermedelecrode.appmatch.ui.empresa.perfil.PerfilEmpresaActivity
 import com.guilhermedelecrode.appmatch.ui.empresa.vagas.CadastrarVagaActivity
+
 class FeedEmpresaActivity : AbstractActivity() {
     private lateinit var feedAdapter: FeedEmpresaAdapter
     private var vagasListener: ListenerRegistration? = null
@@ -27,22 +28,19 @@ class FeedEmpresaActivity : AbstractActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feed_empresa)
 
-        // Configurar a ActionBar geral
         configActionBarGeral()
         onResume()
 
-        // Inicializar RecyclerView e adapter
         val vagaList = mutableListOf<Vaga>()
         feedAdapter = FeedEmpresaAdapter(this, vagaList)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.rv_feed)
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_feed_empresa)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = feedAdapter
 
-        val searchEditText = findViewById<EditText>(R.id.edit_search)
-        val searchButton = findViewById<Button>(R.id.btn_search)
+        val searchEditText = findViewById<EditText>(R.id.edit_pesquisar_vagas_feed_empresa)
+        val searchButton = findViewById<Button>(R.id.btn_pesquisar_vagas_feed_empresa)
 
-        // Configurar busca
         searchButton.setOnClickListener {
             val queryText = searchEditText.text.toString().trim()
             if (queryText.isNotEmpty()) {
@@ -52,7 +50,6 @@ class FeedEmpresaActivity : AbstractActivity() {
             }
         }
 
-        // Carregar vagas do Firestore
         loadVagasFromFirestore()
         Log.d("Lista","$vagaList" )
     }
@@ -152,7 +149,6 @@ class FeedEmpresaActivity : AbstractActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        // Remove o listener para evitar vazamento de memória
         vagasListener?.remove()
     }
 

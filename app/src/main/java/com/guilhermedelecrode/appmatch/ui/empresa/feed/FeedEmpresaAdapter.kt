@@ -18,23 +18,26 @@ import com.guilhermedelecrode.appmatch.R
 import com.guilhermedelecrode.appmatch.model.empresa.Vaga
 import com.guilhermedelecrode.appmatch.ui.empresa.ofertas.OfertasEmpresaActivity
 
-class FeedEmpresaAdapter(private val context: Context,
-                         private val vagaList: MutableList<Vaga>) : RecyclerView.Adapter<FeedEmpresaAdapter.feedViewHolder>() {
+class FeedEmpresaAdapter(
+    private val context: Context,
+    private val vagaList: MutableList<Vaga>
+) : RecyclerView.Adapter<FeedEmpresaAdapter.feedViewHolder>() {
 
 
-     inner class feedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val txt_nome_projeto_empresa: TextView = itemView.findViewById(R.id.txt_nome_projeto_empresa)
-        val txt_descricao: TextView = itemView.findViewById(R.id.txt_descricao_vaga)
-        val txt_habilidade: TextView = itemView.findViewById(R.id.txt_habilidades)
-        val txt_email : TextView = itemView.findViewById(R.id.txt_email)
-        val txt_valor_Pago: TextView = itemView.findViewById(R.id.txt_valor_Pago)
-        val img_editar_vaga: ImageView = itemView.findViewById(R.id.img_editar_vaga)
-        val img_delete_vaga: ImageView = itemView.findViewById(R.id.img_delete_vaga)
-        val btn_proposta: Button = itemView.findViewById(R.id.btn_propostas)
+    inner class feedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val txt_nome_vaga_empresa: TextView = itemView.findViewById(R.id.txt_nome_vaga_empresa)
+        val txt_descricao_vaga_empresa: TextView = itemView.findViewById(R.id.txt_descricao_vaga_empresa)
+        val txt_habilidade_vaga_empresa: TextView = itemView.findViewById(R.id.txt_habilidades_vaga_empresa)
+        val txt_email_vaga_empresa: TextView = itemView.findViewById(R.id.txt_email_vaga_empresa)
+        val txt_valor_Pago_vaga_empresa: TextView = itemView.findViewById(R.id.txt_valor_pago_vaga_empresa)
+        val img_editar_vaga_empresa: ImageView = itemView.findViewById(R.id.img_editar_vaga_empresa)
+        val img_delete_vaga_empresa: ImageView = itemView.findViewById(R.id.img_delete_vaga_empresa)
+        val btn_proposta_vaga_empresa: Button = itemView.findViewById(R.id.btn_propostas_vaga_empresa)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): feedViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_vaga, parent, false)
+        val itemView =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_vaga, parent, false)
         return feedViewHolder(itemView)
     }
 
@@ -47,13 +50,13 @@ class FeedEmpresaAdapter(private val context: Context,
         Log.d("FeedAdapter", "Email: ${vaga.email}")
         Log.d("FeedAdapter", "Valor Pago: ${vaga.valorPago}")
 
-        holder.txt_nome_projeto_empresa.text = "Nome do projeto: ${vaga.nomeProjeto}"
-        holder.txt_descricao.text = "Descrição: ${vaga.descricao}"
-        holder.txt_habilidade.text = "Habilidades: ${vaga.habilidades}"
-        holder.txt_email.text = "Email: ${vaga.email}"
-        holder.txt_valor_Pago.text = "Valor Proposto: R$${vaga.valorPago}"
+        holder.txt_nome_vaga_empresa.text = "Nome do projeto: ${vaga.nomeProjeto}"
+        holder.txt_descricao_vaga_empresa.text = "Descrição: ${vaga.descricao}"
+        holder.txt_habilidade_vaga_empresa.text = "Habilidades: ${vaga.habilidades}"
+        holder.txt_email_vaga_empresa.text = "Email: ${vaga.email}"
+        holder.txt_valor_Pago_vaga_empresa.text = "Valor Proposto: R$${vaga.valorPago}"
 
-        holder.btn_proposta.setOnClickListener {
+        holder.btn_proposta_vaga_empresa.setOnClickListener {
             val intent = Intent(context, OfertasEmpresaActivity::class.java)
             intent.putExtra("idVaga", vaga.idVaga)
             intent.putExtra("idUser", vaga.idUser)
@@ -62,29 +65,25 @@ class FeedEmpresaAdapter(private val context: Context,
         }
 
 
-        holder.img_editar_vaga.setOnClickListener {
+        holder.img_editar_vaga_empresa.setOnClickListener {
             val vaga = vagaList[position]
-            // Abrir o dialog para editar
             abrirDialogEditar(vaga)
         }
 
-        // Configurar o botão de deletar
-        holder.img_delete_vaga.setOnClickListener {
-            // Remover item da lista
+        holder.img_delete_vaga_empresa.setOnClickListener {
             vagaList.removeAt(position)
 
-            // Notificar o RecyclerView sobre a remoção
             notifyItemRemoved(position)
             notifyItemRangeChanged(position, vagaList.size)
 
-            // Se você estiver usando um banco de dados (como Firestore), também precisaria remover o item do banco
             removerItemDoFirestore(vaga.idVaga)
         }
     }
+
     private fun removerItemDoFirestore(idVaga: String) {
         val db = FirebaseFirestore.getInstance()
         db.collection("vagas")
-            .document(idVaga)  // Usando o ID da vaga para localizar e deletar o documento correto
+            .document(idVaga)
             .delete()
             .addOnSuccessListener {
                 Log.d("Firestore", "Item deletado com sucesso!")
@@ -105,48 +104,37 @@ class FeedEmpresaAdapter(private val context: Context,
         val btnSalvarVaga: Button = dialogView.findViewById(R.id.btn_salvar_edit_vaga)
         val btnCancelarVaga: Button = dialogView.findViewById(R.id.btn_cancelar_edit_vaga)
 
-
-
-        // Preencher os campos com os dados da vaga
         editNomeProjeto.setText(vaga.nomeProjeto)
         editDescricao.setText(vaga.descricao)
         editHabilidade.setText(vaga.habilidades)
         editEmail.setText(vaga.email)
         editSalario.setText(vaga.valorPago)
 
-
-        // Criar e exibir o dialog
         val dialog = AlertDialog.Builder(context)
             .setTitle("Editar Vaga")
             .setView(dialogView)
             .create()
 
-
         btnCancelarVaga.setOnClickListener {
-            dialog.dismiss() // Fecha o dialog
+            dialog.dismiss()
         }
 
 
         btnSalvarVaga.setOnClickListener {
-
-            // Obter os dados atualizados
             val nomeProjeto = editNomeProjeto.text.toString()
             val descricao = editDescricao.text.toString()
             val habilidades = editHabilidade.text.toString()
             val email = editEmail.text.toString()
             val salario = editSalario.text.toString()
 
-            // Atualizar o objeto Vaga
             vaga.nomeProjeto = nomeProjeto
             vaga.descricao = descricao
             vaga.habilidades = habilidades
             vaga.email = email
             vaga.valorPago = salario
 
-            // Atualizar no Firestore
             atualizarVagaNoFirestore(vaga)
 
-            // Fechar o dialog
             dialog.dismiss()
         }
 
@@ -162,14 +150,12 @@ class FeedEmpresaAdapter(private val context: Context,
             .set(vaga)
             .addOnSuccessListener {
                 Log.d("Firestore", "Vaga atualizada com sucesso!")
-                // Atualizar a lista no RecyclerView, se necessário
                 notifyDataSetChanged()
             }
             .addOnFailureListener { e ->
                 Log.w("Firestore", "Erro ao atualizar vaga", e)
             }
     }
-
 
     override fun getItemCount(): Int = vagaList.size
 

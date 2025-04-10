@@ -13,9 +13,7 @@ class SplashScreenActivity : AbstractActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-        // Configurar a ActionBar geral
         configActionBarLogin()
-
 
         Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, MainActivity::class.java)
