@@ -9,7 +9,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageView_logo_cadastro_activity"
         android:layout_width="356dp"
         android:layout_height="93dp"
         android:layout_marginTop="8dp"
@@ -20,7 +20,7 @@
         app:srcCompat="@drawable/logo" />
 
     <Button
-        android:id="@+id/btn_freelance"
+        android:id="@+id/btn_freelance_cadastro_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
@@ -29,10 +29,10 @@
         android:text="FREELANCER"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView_logo_cadastro_activity" />
 
     <Button
-        android:id="@+id/btn_empresa"
+        android:id="@+id/btn_empresa_cadastro_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -41,10 +41,10 @@
         android:text="EMPRESA"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView_logo_cadastro_activity" />
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragmentCadastro"
+        android:id="@+id/fragment_cadastro_activity"
         android:name="com.guilhermedelecrode.appmatch.ui.cadastro.fragment.CadastroFreelancerFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"

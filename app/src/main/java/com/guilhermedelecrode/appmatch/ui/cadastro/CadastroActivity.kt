@@ -18,23 +18,13 @@ class CadastroActivity : AbstractActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastro)
 
-        // Configurar a ActionBar geral
         configActionBarGeral()
         onResume()
 
-
-
         //Fragment
-        btn_freelance = findViewById(R.id.btn_freelance)
-        btn_empresa = findViewById(R.id.btn_empresa)
+        btn_freelance = findViewById(R.id.btn_freelance_cadastro_activity)
+        btn_empresa = findViewById(R.id.btn_empresa_cadastro_activity)
 
-
-        /*
-        val fragmentManager = supportFragmentManager.beginTransaction()
-        //alteraçõoes em fragments
-        fragmentManager.add( R.id.fragment_conteudo, ConversasFragment() )
-        fragmentManager.commit()
-        */
 
         val freeFragment = CadastroFreelancerFragment()
         val empresaFragment = CadastroEmpresaFragment()
@@ -42,13 +32,13 @@ class CadastroActivity : AbstractActivity() {
         btn_freelance.setOnClickListener {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.fragmentCadastro, freeFragment )
+                .replace(R.id.fragment_cadastro_activity, freeFragment )
                 .commit() }
 
         btn_empresa.setOnClickListener {
             supportFragmentManager
                 .beginTransaction()
-                .replace(R.id.fragmentCadastro, empresaFragment) //Para chamar um fragment
+                .replace(R.id.fragment_cadastro_activity, empresaFragment) //Para chamar um fragment
                 //.remove(empresaFragment)//Para remover um fragment
                 .commit() }
     }

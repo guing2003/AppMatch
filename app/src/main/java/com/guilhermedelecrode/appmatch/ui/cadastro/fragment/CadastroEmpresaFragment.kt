@@ -30,17 +30,17 @@ class CadastroEmpresaFragment : Fragment() {
 
         auth = FirebaseAuth.getInstance()
 
-        val btn_cadastro_empresa: Button = view.findViewById(R.id.btn_cadastro_empresa)
+        val btn_cadastro_empresa: Button = view.findViewById(R.id.btn_cadastro_empresa_fragment)
 
         btn_cadastro_empresa.setOnClickListener {
-            val email: String = view.findViewById<EditText>(R.id.edit_email_empresa).text.toString()
-            val senha: String = view.findViewById<EditText>(R.id.edit_senha_empresa).text.toString()
-            val nome: String = view.findViewById<EditText>(R.id.edit_nome_empresa).text.toString()
-            val cnpj: String = view.findViewById<EditText>(R.id.edit_cnpj).text.toString()
+            val email: String = view.findViewById<EditText>(R.id.edit_email_cadastro_empresa_fragment).text.toString()
+            val senha: String = view.findViewById<EditText>(R.id.edit_senha_cadastro_empresa_fragment).text.toString()
+            val nome: String = view.findViewById<EditText>(R.id.edit_nome_cadastro_empresa_fragment).text.toString()
+            val cnpj: String = view.findViewById<EditText>(R.id.edit_cnpj_cadastro_empresa_fragment).text.toString()
             val telefone: String =
-                view.findViewById<EditText>(R.id.edit_telefone_empresa).text.toString()
+                view.findViewById<EditText>(R.id.edit_telefone_cadastro_empresa_fragment).text.toString()
             val endereco: String =
-                view.findViewById<EditText>(R.id.edit_endereco_empresa).text.toString()
+                view.findViewById<EditText>(R.id.edit_endereco_cadastro_empresa_fragment).text.toString()
             val tipoUsuario: String = "empresa"
 
             if (email.isNotEmpty() && senha.isNotEmpty()) {

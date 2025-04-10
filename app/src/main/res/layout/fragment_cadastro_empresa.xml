@@ -32,7 +32,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout7">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_cnpj"
+            android:id="@+id/edit_cnpj_cadastro_empresa_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="CNPJ"
@@ -52,7 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout8">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_telefone_empresa"
+            android:id="@+id/edit_telefone_cadastro_empresa_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Telefone" />
@@ -71,7 +71,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout10">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_endereco_empresa"
+            android:id="@+id/edit_endereco_cadastro_empresa_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Endereço" />
@@ -103,7 +103,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout12">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_email_empresa"
+            android:id="@+id/edit_email_cadastro_empresa_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email:" />
@@ -121,7 +121,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout21">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_senha_empresa"
+            android:id="@+id/edit_senha_cadastro_empresa_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Digite sua Senha:"
@@ -129,7 +129,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btn_cadastro_empresa"
+        android:id="@+id/btn_cadastro_empresa_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -152,7 +152,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_nome_empresa"
+            android:id="@+id/edit_nome_cadastro_empresa_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nome da Empresa" />

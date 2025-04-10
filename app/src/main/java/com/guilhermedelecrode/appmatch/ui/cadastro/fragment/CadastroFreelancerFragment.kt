@@ -26,20 +26,18 @@ class CadastroFreelancerFragment: Fragment(){
         savedInstanceState: Bundle?,
     ): View? {
         val view = inflater.inflate(R.layout.fragment_cadastro_freelancer, container, false)
-        // Inicializando FirebaseAuth
         auth = FirebaseAuth.getInstance()
 
-        val btn_cadastro_free : Button = view.findViewById(R.id.btn_cadastro_free)
+        val btn_cadastro_free : Button = view.findViewById(R.id.btn_cadastro_freelancer_fragment)
 
         btn_cadastro_free.setOnClickListener {
-            // Obtendo os valores dos campos EditText corretamente
-            val email: String = view.findViewById<EditText>(R.id.edit_email_free).text.toString()
-            val senha: String = view.findViewById<EditText>(R.id.edit_senha_free).text.toString()
-            val nome: String = view.findViewById<EditText>(R.id.edit_nome_free).text.toString()
-            val cpf: String = view.findViewById<EditText>(R.id.edit_cpf).text.toString()
-            val endereco : String = view.findViewById<EditText>(R.id.edit_endereco_free).text.toString()
-            val numero : String = view.findViewById<EditText>(R.id.edit_numero_free).text.toString()
-            val telefone: String = view.findViewById<EditText>(R.id.edit_telefone_free).text.toString()
+            val email: String = view.findViewById<EditText>(R.id.edit_email_cadastro_freelancer_fragment1).text.toString()
+            val senha: String = view.findViewById<EditText>(R.id.edit_senha_cadastro_freelancer_fragment).text.toString()
+            val nome: String = view.findViewById<EditText>(R.id.edit_nome_cadastro_freelancer_fragment).text.toString()
+            val cpf: String = view.findViewById<EditText>(R.id.edit_cpf_cadastro_freelancer_fragment).text.toString()
+            val endereco : String = view.findViewById<EditText>(R.id.edit_endereco_cadastro_freelancer_fragment).text.toString()
+            val numero : String = view.findViewById<EditText>(R.id.edit_numero_cadastro_freelancer_fragment).text.toString()
+            val telefone: String = view.findViewById<EditText>(R.id.edit_telefone_cadastro_freelancer_fragment).text.toString()
             val tipoUsuario: String = "freelancer"
 
             if (email.isNotEmpty() && senha.isNotEmpty()) {
@@ -60,7 +58,6 @@ class CadastroFreelancerFragment: Fragment(){
                 }
                 val intent = Intent(requireActivity(), MainActivity::class.java)
                 startActivity(intent)
-                // Você pode adicionar finish() aqui se quiser fechar a activity atual
                 // finish()
             } else {
                 val exception = task.exception
@@ -75,7 +72,6 @@ class CadastroFreelancerFragment: Fragment(){
     }
 
     private fun saveUserData(uid: String, email: String,nome:String, cpf: String, endereco: String, numero: String, telefone: String, tipoUsuario: String) {
-        // Cria um mapa com os dados que serão salvos no Firestore
         val userData = hashMapOf(
             "id" to uid,
             "email" to email,
@@ -87,7 +83,6 @@ class CadastroFreelancerFragment: Fragment(){
             "tipoUsuario" to tipoUsuario
         )
 
-        // Salvando os dados no Firestore usando o UID como o ID do documento
         val db = FirebaseFirestore.getInstance()
         db.collection("usuarios").document(uid)
             .set(userData)

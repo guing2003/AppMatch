@@ -21,7 +21,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_nome_free"
+            android:id="@+id/edit_nome_cadastro_freelancer_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nome:"
@@ -42,7 +42,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_email_free"
+            android:id="@+id/edit_email_cadastro_freelancer_fragment1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="E-mail:"
@@ -89,7 +89,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_cpf"
+            android:id="@+id/edit_cpf_cadastro_freelancer_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="CPF"
@@ -97,7 +97,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btn_cadastro_free"
+        android:id="@+id/btn_cadastro_freelancer_fragment"
         android:layout_width="wrap_content"
         android:layout_height="54dp"
         android:layout_marginTop="24dp"
@@ -121,7 +121,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout6">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_senha_free"
+            android:id="@+id/edit_senha_cadastro_freelancer_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Digite a sua senha:"
@@ -139,7 +139,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_endereco_free"
+            android:id="@+id/edit_endereco_cadastro_freelancer_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Endereço:" />
@@ -153,7 +153,7 @@
         app:layout_constraintTop_toTopOf="@+id/textInputLayout23">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_numero_free"
+            android:id="@+id/edit_numero_cadastro_freelancer_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Numero:" />
@@ -172,7 +172,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout23">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_telefone_free"
+            android:id="@+id/edit_telefone_cadastro_freelancer_fragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Telefone"
