@@ -32,10 +32,10 @@ class OrdensServicoFreelancerAdapter(
     }
 
     inner class OrdemServicoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val nomeProjeto: TextView = itemView.findViewById(R.id.txt_titulo_vaga)
-        private val email: TextView = itemView.findViewById(R.id.txt_email)
-        private val prazo: TextView = itemView.findViewById(R.id.txt_prazo)
-        private val status: TextView = itemView.findViewById(R.id.txt_status)
+        private val nomeProjeto: TextView = itemView.findViewById(R.id.txt_titulo_vaga_item_ordem_servico_freelancer)
+        private val email: TextView = itemView.findViewById(R.id.txt_email_item_ordem_servico_freelancer)
+        private val prazo: TextView = itemView.findViewById(R.id.txt_prazo_item_ordem_servico_freelancer)
+        private val status: TextView = itemView.findViewById(R.id.txt_status_item_ordem_servico_freelancer)
 
         fun bind(ordemServico: OrdemServico) {
             nomeProjeto.text = "Titulo da vaga: ${ordemServico.nomeProjeto}"

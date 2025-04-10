@@ -17,13 +17,13 @@ class PerfilEmpresaAdapter(private val perfilList: MutableList<PerfilEmpresa>,
 ) : RecyclerView.Adapter<PerfilEmpresaAdapter.perfilViewHolder>() {
 
     inner class perfilViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val txt_nome_empresa: TextView = itemView.findViewById(R.id.txt_nome_empresa)
-        val txt_cnpj: TextView = itemView.findViewById(R.id.txt_cnpj)
-        val txt_endereco_empresa: TextView = itemView.findViewById(R.id.txt_endereco_empresa)
-        val txt_email_empresa: TextView = itemView.findViewById(R.id.txt_email_empresa)
-        val txt_telefone_empresa : TextView = itemView.findViewById(R.id.txt_telefone_empresa)
-        val txt_seguimento: TextView = itemView.findViewById(R.id.txt_seguimento)
-        val btn_edit: Button = itemView.findViewById(R.id.btn_editar_perfil_empresa)
+        val txt_nome_empresa: TextView = itemView.findViewById(R.id.txt_nome_item_perfil_empresa)
+        val txt_cnpj: TextView = itemView.findViewById(R.id.txt_cnpj_item_perfil_empresa)
+        val txt_endereco_empresa: TextView = itemView.findViewById(R.id.txt_endereco_item_perfil_empresa)
+        val txt_email_empresa: TextView = itemView.findViewById(R.id.txt_email_item_perfil_empresa)
+        val txt_telefone_empresa : TextView = itemView.findViewById(R.id.txt_telefone_item_perfil_empresa)
+        val txt_seguimento: TextView = itemView.findViewById(R.id.txt_seguimento_item_perfil_empresa)
+        val btn_edit: Button = itemView.findViewById(R.id.btn_editar_item_perfil_empresa)
 
         init {
             // Adiciona o Listener no botão de cada item do RecyclerView

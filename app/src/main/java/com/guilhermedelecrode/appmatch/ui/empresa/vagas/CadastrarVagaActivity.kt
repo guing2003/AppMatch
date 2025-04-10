@@ -16,18 +16,17 @@ class CadastrarVagaActivity() : AbstractActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cadastrar_vaga)
 
-        // Configurar a ActionBar geral
         configActionBarGeral()
         onResume()
 
-        val btn_cadastrar_vaga = findViewById<Button>(R.id.btn_cadastrar_vaga)
+        val btn_cadastrar_vaga = findViewById<Button>(R.id.btn_cadastrar_vaga_cadastrar_vaga_empresa)
 
         btn_cadastrar_vaga.setOnClickListener {
-            val nomeProjeto = findViewById<EditText>(R.id.edit_nome_projeto).text.toString()
-            val descricao = findViewById<EditText>(R.id.edit_descricao_vaga).text.toString()
-            val habilidades = findViewById<EditText>(R.id.edit_habilidades).text.toString()
-            val email = findViewById<EditText>(R.id.edit_email_vaga).text.toString()
-            val valorPago = findViewById<EditText>(R.id.edit_valor_pago).text.toString()
+            val nomeProjeto = findViewById<EditText>(R.id.edit_nome_vaga_cadastrar_vaga_empresa).text.toString()
+            val descricao = findViewById<EditText>(R.id.edit_descricao_vaga_cadastrar_vaga_empresa).text.toString()
+            val habilidades = findViewById<EditText>(R.id.edit_habilidades_vaga_cadastrar_vaga_empresa).text.toString()
+            val email = findViewById<EditText>(R.id.edit_email_vaga_cadastrar_vaga_empresa).text.toString()
+            val valorPago = findViewById<EditText>(R.id.edit_valor_pago_cadastrar_vaga_empresa).text.toString()
 
             if (nomeProjeto.isNotEmpty() && descricao.isNotEmpty() && habilidades.isNotEmpty() && email.isNotEmpty() && valorPago.isNotEmpty()) {
                 val idVaga = UUID.randomUUID().toString()  // Cria um ID único para a vaga
@@ -35,7 +34,7 @@ class CadastrarVagaActivity() : AbstractActivity() {
                 finish()
             } else {
                 Toast.makeText(
-                    this,  // Corrigido para `this` em uma Activity
+                    this,
                     "Por favor, preencha os campos",
                     Toast.LENGTH_SHORT
                 ).show()
@@ -56,7 +55,6 @@ class CadastrarVagaActivity() : AbstractActivity() {
         user?.let {
             val uidUser = it.uid
 
-            // Cria um mapa com os dados da vaga
             val vaga = hashMapOf(
                 "idVaga" to idVaga,
                 "nomeProjeto" to nomeProjeto,
@@ -64,10 +62,9 @@ class CadastrarVagaActivity() : AbstractActivity() {
                 "habilidades" to habilidades,
                 "email" to email,
                 "valorPago" to valorPago,
-                "idUser" to uidUser  // Associa o UID do usuário logado com a vaga
+                "idUser" to uidUser
             )
 
-            // Adiciona o documento ao Firestore com o ID da vaga
             db.collection("vagas").document(idVaga)
                 .set(vaga)
                 .addOnSuccessListener {

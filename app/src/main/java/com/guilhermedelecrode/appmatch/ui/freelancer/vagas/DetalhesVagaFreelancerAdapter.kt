@@ -21,13 +21,13 @@ class DetalhesVagaFreelancerAdapter(
 ) : RecyclerView.Adapter<DetalhesVagaFreelancerAdapter.DetalhesViewHolder>() {
 
     class DetalhesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val txt_titulo_vaga: TextView = itemView.findViewById(R.id.txt_titulo_vaga)
-        val txt_nome_empresa: TextView = itemView.findViewById(R.id.txt_nome_empresa)
-        val txt_descricao: TextView = itemView.findViewById(R.id.txt_descricao)
-        val txt_habilidades: TextView = itemView.findViewById(R.id.txt_habilidades)
-        val txt_email: TextView = itemView.findViewById(R.id.txt_email)
-        val txt_salario: TextView = itemView.findViewById(R.id.txt_salario)
-        val btn_fazer_oferta: Button = itemView.findViewById(R.id.btn_fazer_oferta)
+        val txt_titulo_vaga: TextView = itemView.findViewById(R.id.txt_titulo_vaga_item_descricao_vaga_freelancer)
+        val txt_nome_empresa: TextView = itemView.findViewById(R.id.txt_nome_empresa_item_descricao_vaga_freelancer)
+        val txt_descricao: TextView = itemView.findViewById(R.id.txt_descricao_vaga_item_descricao_vaga_freelancer)
+        val txt_habilidades: TextView = itemView.findViewById(R.id.txt_habilidades_vaga_item_descricao_vaga_freelancer)
+        val txt_email: TextView = itemView.findViewById(R.id.txt_email_vaga_item_descricao_vaga_freelancer)
+        val txt_salario: TextView = itemView.findViewById(R.id.txt_salario_vaga_item_descricao_vaga_freelancer)
+        val btn_fazer_oferta: Button = itemView.findViewById(R.id.btn_fazer_oferta_vaga_item_descricao_vaga_freelancer)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetalhesViewHolder {

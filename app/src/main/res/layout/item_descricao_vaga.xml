@@ -6,7 +6,7 @@
     android:padding="9dp">
 
     <TextView
-        android:id="@+id/txt_titulo_vaga"
+        android:id="@+id/txt_titulo_vaga_item_descricao_vaga_freelancer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
@@ -14,7 +14,7 @@
         android:textAlignment="textStart"
         android:textSize="20sp" />
     <TextView
-        android:id="@+id/txt_nome_empresa"
+        android:id="@+id/txt_nome_empresa_item_descricao_vaga_freelancer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
@@ -22,7 +22,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/txt_descricao"
+        android:id="@+id/txt_descricao_vaga_item_descricao_vaga_freelancer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
@@ -30,7 +30,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/txt_habilidades"
+        android:id="@+id/txt_habilidades_vaga_item_descricao_vaga_freelancer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
@@ -38,7 +38,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/txt_email"
+        android:id="@+id/txt_email_vaga_item_descricao_vaga_freelancer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
@@ -48,7 +48,7 @@
 
 
     <TextView
-        android:id="@+id/txt_salario"
+        android:id="@+id/txt_salario_vaga_item_descricao_vaga_freelancer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
@@ -62,7 +62,7 @@
         android:orientation="horizontal"
         android:padding="8dp">
         <Button
-            android:id="@+id/btn_fazer_oferta"
+            android:id="@+id/btn_fazer_oferta_vaga_item_descricao_vaga_freelancer"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"

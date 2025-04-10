@@ -46,13 +46,13 @@ class OrdensServicoAdapter(
     }
 
     inner class OrdemServicoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val nomeProjeto: TextView = itemView.findViewById(R.id.txt_titulo_vaga)
-        private val nomeFreelancer: TextView = itemView.findViewById(R.id.txt_nome_free)
-        private val email: TextView = itemView.findViewById(R.id.txt_email)
-        private val prazo: TextView = itemView.findViewById(R.id.txt_prazo)
-        private val status: TextView = itemView.findViewById(R.id.txt_status)
-        private val editOrdem: ImageView = itemView.findViewById(R.id.img_edit_ordem_servico)
-        private val avaliar: ImageView = itemView.findViewById(R.id.img_avaliar)
+        private val nomeProjeto: TextView = itemView.findViewById(R.id.txt_titulo_vaga_item_ordem_servico_empresa)
+        private val nomeFreelancer: TextView = itemView.findViewById(R.id.txt_nome_freelancer_vaga_item_ordem_servico_empresa)
+        private val email: TextView = itemView.findViewById(R.id.txt_email_vaga_item_ordem_servico_empresa)
+        private val prazo: TextView = itemView.findViewById(R.id.txt_prazo_vaga_item_ordem_servico_empresa)
+        private val status: TextView = itemView.findViewById(R.id.txt_status_vaga_item_ordem_servico_empresa)
+        private val editOrdem: ImageView = itemView.findViewById(R.id.img_edit_ordem_servico_vaga_item_ordem_servico_empresa)
+        private val avaliar: ImageView = itemView.findViewById(R.id.img_avaliar_freelancer_vaga_item_ordem_servico_empresa)
 
         init {
             editOrdem.setOnClickListener {

@@ -6,7 +6,7 @@
     android:padding="9dp">
 
     <TextView
-        android:id="@+id/txt_nome_empresa"
+        android:id="@+id/txt_nome_item_perfil_empresa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
@@ -15,7 +15,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/txt_cnpj"
+        android:id="@+id/txt_cnpj_item_perfil_empresa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
@@ -23,7 +23,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/txt_endereco_empresa"
+        android:id="@+id/txt_endereco_item_perfil_empresa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
@@ -31,7 +31,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/txt_email_empresa"
+        android:id="@+id/txt_email_item_perfil_empresa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
@@ -41,7 +41,7 @@
 
 
     <TextView
-        android:id="@+id/txt_telefone_empresa"
+        android:id="@+id/txt_telefone_item_perfil_empresa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
@@ -50,7 +50,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/txt_seguimento"
+        android:id="@+id/txt_seguimento_item_perfil_empresa"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp"
@@ -63,7 +63,7 @@
         android:orientation="horizontal"
         android:padding="8dp">
         <Button
-            android:id="@+id/btn_editar_perfil_empresa"
+            android:id="@+id/btn_editar_item_perfil_empresa"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:layout_weight="1"
