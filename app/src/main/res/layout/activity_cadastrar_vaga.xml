@@ -19,7 +19,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_vaga_cadastrar_vaga_empresa">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_nome_vaga_cadastrar_vaga_empresa"
+            android:id="@+id/edit_nome_vaga_cadastrar_vaga_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Digite o nome do seu projeto:" />
@@ -38,7 +38,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout16">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_descricao_vaga_cadastrar_vaga_empresa"
+            android:id="@+id/edit_descricao_vaga_cadastrar_vaga_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Descrição da vaga:" />
@@ -57,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout17">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_habilidades_vaga_cadastrar_vaga_empresa"
+            android:id="@+id/edit_habilidades_vaga_cadastrar_vaga_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Habilidades necessárias:" />
@@ -91,7 +91,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout18">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_email_vaga_cadastrar_vaga_empresa"
+            android:id="@+id/edit_email_vaga_cadastrar_vaga_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Digite um e-mail em caso de dúvidas:"
@@ -124,7 +124,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout19">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_valor_pago_cadastrar_vaga_empresa"
+            android:id="@+id/edit_valor_pago_cadastrar_vaga_activity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Quanto pagará?" />

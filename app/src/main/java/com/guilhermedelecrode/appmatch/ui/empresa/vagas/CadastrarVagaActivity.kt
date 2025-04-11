@@ -22,14 +22,14 @@ class CadastrarVagaActivity() : AbstractActivity() {
         val btn_cadastrar_vaga = findViewById<Button>(R.id.btn_cadastrar_vaga_cadastrar_vaga_empresa)
 
         btn_cadastrar_vaga.setOnClickListener {
-            val nomeProjeto = findViewById<EditText>(R.id.edit_nome_vaga_cadastrar_vaga_empresa).text.toString()
-            val descricao = findViewById<EditText>(R.id.edit_descricao_vaga_cadastrar_vaga_empresa).text.toString()
-            val habilidades = findViewById<EditText>(R.id.edit_habilidades_vaga_cadastrar_vaga_empresa).text.toString()
-            val email = findViewById<EditText>(R.id.edit_email_vaga_cadastrar_vaga_empresa).text.toString()
-            val valorPago = findViewById<EditText>(R.id.edit_valor_pago_cadastrar_vaga_empresa).text.toString()
+            val nomeProjeto = findViewById<EditText>(R.id.edit_nome_vaga_cadastrar_vaga_activity).text.toString()
+            val descricao = findViewById<EditText>(R.id.edit_descricao_vaga_cadastrar_vaga_activity).text.toString()
+            val habilidades = findViewById<EditText>(R.id.edit_habilidades_vaga_cadastrar_vaga_activity).text.toString()
+            val email = findViewById<EditText>(R.id.edit_email_vaga_cadastrar_vaga_activity).text.toString()
+            val valorPago = findViewById<EditText>(R.id.edit_valor_pago_cadastrar_vaga_activity).text.toString()
 
             if (nomeProjeto.isNotEmpty() && descricao.isNotEmpty() && habilidades.isNotEmpty() && email.isNotEmpty() && valorPago.isNotEmpty()) {
-                val idVaga = UUID.randomUUID().toString()  // Cria um ID único para a vaga
+                val idVaga = UUID.randomUUID().toString()
                 addVagas(idVaga, nomeProjeto, descricao, habilidades, email, valorPago)
                 finish()
             } else {
