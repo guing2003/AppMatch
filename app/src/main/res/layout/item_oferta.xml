@@ -6,7 +6,7 @@
     android:padding="8dp">
 
     <TextView
-        android:id="@+id/txt_titulo_vaga_item_oferta_empresa"
+        android:id="@+id/txt_titulo_vaga_oferta_empresa_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -16,7 +16,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/txt_nome_freelance_vaga_item_oferta_empresa"
+        android:id="@+id/txt_nome_freelance_vaga_oferta_empresa_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -33,7 +33,7 @@
         android:textSize="18sp" />
 
     <RatingBar
-        android:id="@+id/rating_freelancer_vaga_item_oferta_empresa"
+        android:id="@+id/rating_freelancer_vaga_oferta_empresa_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp" />
@@ -45,7 +45,7 @@
         android:background="?android:attr/listDivider" />
 
     <TextView
-        android:id="@+id/txt_salario_proposto_vaga_item_oferta_empresa"
+        android:id="@+id/txt_salario_proposto_vaga_oferta_empresa_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -55,7 +55,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/txt_prazo_vaga_item_oferta_empresa"
+        android:id="@+id/txt_prazo_vaga_oferta_empresa_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
@@ -64,7 +64,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/txt_status_vaga_item_oferta_empresa"
+        android:id="@+id/txt_status_vaga_oferta_empresa_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="8dp"
@@ -78,14 +78,14 @@
         android:padding="8dp">
 
         <ImageView
-            android:id="@+id/img_aceitar_vaga_item_oferta_empresa"
+            android:id="@+id/img_aceitar_vaga_oferta_empresa_activity"
             android:layout_width="100dp"
             android:layout_height="40dp"
             android:layout_marginLeft="100dp"
             app:srcCompat="@android:drawable/ic_input_add" />
 
         <ImageView
-            android:id="@+id/img_recusar_vaga_item_oferta_empresa"
+            android:id="@+id/img_recusar_vaga_oferta_empresa_activity"
             android:layout_width="100dp"
             android:layout_height="40dp"
             app:srcCompat="@android:drawable/ic_delete" />

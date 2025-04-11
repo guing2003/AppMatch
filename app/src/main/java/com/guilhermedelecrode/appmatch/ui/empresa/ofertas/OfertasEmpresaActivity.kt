@@ -18,7 +18,6 @@ class OfertasEmpresaActivity : AbstractActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ofertas_empresa)
 
-        // Configurar a ActionBar geral
         configActionBarGeral()
         onResume()
 
@@ -29,16 +28,13 @@ class OfertasEmpresaActivity : AbstractActivity() {
     private fun loadVagaAndOffers(idVaga: String) {
         val db = FirebaseFirestore.getInstance()
 
-        // Log para depuração
         println("ID da Vaga: $idVaga")
 
-        // Obter a vaga correspondente
         val vagaRef = db.collection("vagas").document(idVaga)
         vagaRef.get().addOnSuccessListener { documentSnapshot ->
             if (documentSnapshot.exists()) {
                 val vaga = documentSnapshot.toObject(Vaga::class.java)
                 if (vaga != null) {
-                    // Obter as ofertas correspondentes
                     loadOffersForJob(idVaga, vaga)
                 } else {
                     Toast.makeText(this, "Vaga não encontrada.", Toast.LENGTH_SHORT).show()
@@ -55,10 +51,8 @@ class OfertasEmpresaActivity : AbstractActivity() {
         val db = FirebaseFirestore.getInstance()
         db.collection("ofertas").whereEqualTo("idVaga", idVaga).get()
             .addOnSuccessListener { querySnapshot ->
-                // Adicionando log para verificar o conteúdo dos documentos de oferta
                 Log.d("Ofertas_Enviadas_EmpresaActivity", "Ofertas: ${querySnapshot.documents}")
                 val offers = querySnapshot.documents.mapNotNull { it.toObject(Ofertas::class.java) }
-                // Atualizar a UI com a lista de ofertas
                 updateOffersUI(offers, vaga)
             }
             .addOnFailureListener { e ->

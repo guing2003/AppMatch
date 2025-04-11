@@ -146,7 +146,7 @@ class FeedEmpresaAdapter(
         vaga.idUser = FirebaseAuth.getInstance().currentUser?.uid ?: ""
 
         db.collection("vagas")
-            .document(vaga.idVaga)  // Usando o ID da vaga para atualizar
+            .document(vaga.idVaga)
             .set(vaga)
             .addOnSuccessListener {
                 Log.d("Firestore", "Vaga atualizada com sucesso!")

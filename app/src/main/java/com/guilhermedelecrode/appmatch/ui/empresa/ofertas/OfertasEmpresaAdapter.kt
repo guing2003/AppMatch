@@ -35,14 +35,14 @@ class OfertasEmpresaAdapter(
     override fun getItemCount() = offers.size
 
     inner class OfertaViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val nomeUser = itemView.findViewById<TextView>(R.id.txt_nome_freelance_vaga_item_oferta_empresa)
-        private val nomeVaga = itemView.findViewById<TextView>(R.id.txt_titulo_vaga_item_oferta_empresa)
-        private val status = itemView.findViewById<TextView>(R.id.txt_status_vaga_item_oferta_empresa)
-        private val preco = itemView.findViewById<TextView>(R.id.txt_salario_proposto_vaga_item_oferta_empresa)
-        private val prazo = itemView.findViewById<TextView>(R.id.txt_prazo_vaga_item_oferta_empresa)
-        private val aceitar = itemView.findViewById<ImageView>(R.id.img_aceitar_vaga_item_oferta_empresa)
-        private val ratingBar = itemView.findViewById<RatingBar>(R.id.rating_freelancer_vaga_item_oferta_empresa)
-        private val recusar = itemView.findViewById<ImageView>(R.id.img_recusar_vaga_item_oferta_empresa)
+        private val nomeUser = itemView.findViewById<TextView>(R.id.txt_nome_freelance_vaga_oferta_empresa_activity)
+        private val nomeVaga = itemView.findViewById<TextView>(R.id.txt_titulo_vaga_oferta_empresa_activity)
+        private val status = itemView.findViewById<TextView>(R.id.txt_status_vaga_oferta_empresa_activity)
+        private val preco = itemView.findViewById<TextView>(R.id.txt_salario_proposto_vaga_oferta_empresa_activity)
+        private val prazo = itemView.findViewById<TextView>(R.id.txt_prazo_vaga_oferta_empresa_activity)
+        private val aceitar = itemView.findViewById<ImageView>(R.id.img_aceitar_vaga_oferta_empresa_activity)
+        private val ratingBar = itemView.findViewById<RatingBar>(R.id.rating_freelancer_vaga_oferta_empresa_activity)
+        private val recusar = itemView.findViewById<ImageView>(R.id.img_recusar_vaga_oferta_empresa_activity)
 
         fun bind(oferta: Ofertas, vaga: Vaga) {
             nomeUser.text = "Nome do Freelancer: ${oferta.nome}"
@@ -51,7 +51,6 @@ class OfertasEmpresaAdapter(
             preco.text = "Valor Proposto: ${oferta.preco}"
             status.text = "Status: ${oferta.status}"
 
-            // Buscar e exibir avaliação
             fetchAndDisplayRating(oferta.idUserFree)
 
             aceitar.setOnClickListener {
