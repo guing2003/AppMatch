@@ -32,19 +32,16 @@ class OrdemServicoEmpresaActivity : AbstractActivity() {
         adapter = OrdensServicoAdapter(this, ordensServico)
         recyclerView.adapter = adapter
 
-        // Configurar a ActionBar geral
         configActionBarGeral()
         onResume()
         loadOrdensServico()
 
-        // Configurar o Spinner
         val spinner = findViewById<Spinner>(R.id.spinner_ordem_servico_empresa)
         val statusOptions = listOf("Todos", "Em andamento", "Concluída")
         val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, statusOptions)
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = spinnerAdapter
 
-        // Listener do Spinner
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val selectedStatus = statusOptions[position]
@@ -59,7 +56,7 @@ class OrdemServicoEmpresaActivity : AbstractActivity() {
 
     private fun filterOrdensServico(status: String) {
         val filteredOrdens = if (status == "Todos") {
-            ordensServico // Exibir todos os itens
+            ordensServico
         } else {
             ordensServico.filter { it.status == status }
         }
