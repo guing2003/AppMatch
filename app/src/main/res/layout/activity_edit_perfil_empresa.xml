@@ -53,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout15"/>
 
     <Button
-        android:id="@+id/btn_cancelar_edit_empresa_activity"
+        android:id="@+id/btn_cancelar_edit_perfil_empresa_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="74dp"
@@ -61,13 +61,13 @@
         android:backgroundTint="#00547D"
         android:text="Cancelar"
         android:textColor="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/btn_salvar_edit_empresa_activity"
+        app:layout_constraintEnd_toStartOf="@+id/btn_salvar_edit_perfil_empresa_activity"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout14" />
 
     <Button
-        android:id="@+id/btn_salvar_edit_empresa_activity"
+        android:id="@+id/btn_salvar_edit_perfil_empresa_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
@@ -76,8 +76,8 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btn_cancelar_edit_empresa_activity"
-        app:layout_constraintTop_toTopOf="@+id/btn_cancelar_edit_empresa_activity" />
+        app:layout_constraintStart_toEndOf="@+id/btn_cancelar_edit_perfil_empresa_activity"
+        app:layout_constraintTop_toTopOf="@+id/btn_cancelar_edit_perfil_empresa_activity" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout15"

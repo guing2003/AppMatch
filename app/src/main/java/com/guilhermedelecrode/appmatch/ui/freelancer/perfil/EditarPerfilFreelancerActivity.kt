@@ -18,14 +18,13 @@ class EditarPerfilFreelancerActivity : AbstractActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_edit_perfil_freelancer)
 
-        // Configurar a ActionBar geral
         configActionBarGeral()
         onResume()
         loadEditPerfilFromFirestore()
 
 
-        val btn_cancelar_edit_free = findViewById<Button>(R.id.btn_cancelar_edit_empresa_activity)
-        val btn_salvar_edit_free = findViewById<Button>(R.id.btn_salvar_edit_empresa_activity)
+        val btn_cancelar_edit_free = findViewById<Button>(R.id.btn_cancelar_edit_perfil_freelancer_activity)
+        val btn_salvar_edit_free = findViewById<Button>(R.id.btn_salvar_edit_perfil_freelancer_activity)
 
         btn_salvar_edit_free.setOnClickListener {
             updatePerfilToFirestore()
@@ -45,10 +44,10 @@ class EditarPerfilFreelancerActivity : AbstractActivity() {
         val db = FirebaseFirestore.getInstance()
         val idUser = FirebaseAuth.getInstance().currentUser?.uid
 
-        val edit_endereco_free : EditText = findViewById(R.id.edit_endereco_free)
-        val edit_numero_free : EditText = findViewById(R.id.edit_numero_free)
-        val edit_telefone_free : EditText = findViewById(R.id.edit_telefone_free)
-        val edit_descricao_free : EditText = findViewById(R.id.edit_descricao)
+        val edit_endereco_free : EditText = findViewById(R.id.edit_endereco_perfil_freelancer_activity)
+        val edit_numero_free : EditText = findViewById(R.id.edit_numero_perfil_freelancer_activity)
+        val edit_telefone_free : EditText = findViewById(R.id.edit_telefone_perfil_freelancer_activity)
+        val edit_descricao_free : EditText = findViewById(R.id.edit_descricao_perfil_freelancer_activity)
 
         if (idUser != null) {
             perfilListener = db.collection("usuarios")
@@ -67,7 +66,6 @@ class EditarPerfilFreelancerActivity : AbstractActivity() {
                         val telefone = document.getString("telefone") ?: ""
                         val descricao = document.getString("descricao") ?: ""
 
-                        // Preencher os campos de EditText diretamente com os dados recuperados
                         edit_endereco_free.setText(endereco)
                         edit_numero_free.setText(numero)
                         edit_telefone_free.setText(telefone)
@@ -83,10 +81,10 @@ class EditarPerfilFreelancerActivity : AbstractActivity() {
 
     private fun updatePerfilToFirestore() {
 
-        val edit_endereco_free : EditText = findViewById(R.id.edit_endereco_free)
-        val edit_numero_free : EditText = findViewById(R.id.edit_numero_free)
-        val edit_telefone_free : EditText = findViewById(R.id.edit_telefone_free)
-        val edit_descricao : EditText = findViewById(R.id.edit_descricao)
+        val edit_endereco_free : EditText = findViewById(R.id.edit_endereco_perfil_freelancer_activity)
+        val edit_numero_free : EditText = findViewById(R.id.edit_numero_perfil_freelancer_activity)
+        val edit_telefone_free : EditText = findViewById(R.id.edit_telefone_perfil_freelancer_activity)
+        val edit_descricao : EditText = findViewById(R.id.edit_descricao_perfil_freelancer_activity)
 
         val updatedEndereco = edit_endereco_free.text.toString()
         val updatedNumero = edit_numero_free.text.toString()

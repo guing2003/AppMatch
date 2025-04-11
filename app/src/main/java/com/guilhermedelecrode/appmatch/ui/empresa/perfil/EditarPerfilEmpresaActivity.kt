@@ -23,7 +23,7 @@ class EditarPerfilEmpresaActivity : AbstractActivity() {
 
         loadEditPerfilFromFirestore()
 
-        val btn_salvar_edit_empresa = findViewById<Button>(R.id.btn_salvar_edit_empresa_activity)
+        val btn_salvar_edit_empresa = findViewById<Button>(R.id.btn_salvar_edit_perfil_empresa_activity)
         btn_salvar_edit_empresa.setOnClickListener{
             updatePerfilToFirestore()
             finish()
@@ -31,7 +31,7 @@ class EditarPerfilEmpresaActivity : AbstractActivity() {
             startActivity(intent)
         }
 
-        val btn_cancelar_edit_empresa = findViewById<Button>(R.id.btn_cancelar_edit_empresa_activity)
+        val btn_cancelar_edit_empresa = findViewById<Button>(R.id.btn_cancelar_edit_perfil_empresa_activity)
         btn_cancelar_edit_empresa.setOnClickListener{
             val intent = Intent(this, PerfilEmpresaActivity::class.java)
             startActivity(intent)

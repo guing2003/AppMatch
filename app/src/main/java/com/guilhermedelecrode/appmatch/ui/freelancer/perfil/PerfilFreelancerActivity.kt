@@ -27,19 +27,16 @@ class PerfilFreelancerActivity : AbstractActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil_freelancer)
 
-        // Configurar a ActionBar geral
         configActionBarGeral()
         onResume()
 
-        // Inicializar RecyclerView e adapter
         val perfilList = mutableListOf<PerfilFreelancer>()
         perfilAdapter = PerfilFreelancerAdapter(perfilList, this)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.rv_perfil_free)
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_perfil_freelancer_activity)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = perfilAdapter
 
-        // Carregar vagas do Firestore
         loadPerfilFromFirestore()
         Log.d("Lista","$perfilList" )
     }
@@ -72,7 +69,7 @@ class PerfilFreelancerActivity : AbstractActivity() {
                     }
 
                     Log.d("Perfil", "Lista de perfil atualizadas em tempo real: $perfil_free")
-                    perfilAdapter.updateData(perfil_free) // Atualiza o adapter com os dados em tempo real
+                    perfilAdapter.updateData(perfil_free)
                 }
         } else {
             Toast.makeText(this, "Usuário não autenticado", Toast.LENGTH_SHORT).show()
@@ -81,7 +78,6 @@ class PerfilFreelancerActivity : AbstractActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        // Remove o listener para evitar vazamento de memória
         perfilListener?.remove()
     }
 

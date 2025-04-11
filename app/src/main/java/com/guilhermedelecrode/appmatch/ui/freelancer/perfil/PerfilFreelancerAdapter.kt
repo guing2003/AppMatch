@@ -16,20 +16,18 @@ class PerfilFreelancerAdapter(private val perfilList: MutableList<PerfilFreelanc
 ) : RecyclerView.Adapter<PerfilFreelancerAdapter.perfilViewHolder>()  {
 
     inner class perfilViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val txt_nome_free: TextView = itemView.findViewById(R.id.txt_nome_free)
-        val txt_cpf: TextView = itemView.findViewById(R.id.txt_cpf)
-        val txt_endereco_free: TextView = itemView.findViewById(R.id.txt_endereco_free)
-        val txt_email_free: TextView = itemView.findViewById(R.id.txt_email_free)
-        val txt_telefone_free : TextView = itemView.findViewById(R.id.txt_telefone_free)
-        val txt_descricao_free: TextView = itemView.findViewById(R.id.txt_descricao_free)
-        val btn_edit: Button = itemView.findViewById(R.id.btn_editar_perfil_free)
+        val txt_nome_free: TextView = itemView.findViewById(R.id.txt_nome_perfil_freelancer_activity)
+        val txt_cpf: TextView = itemView.findViewById(R.id.txt_cpf_perfil_freelancer_activity)
+        val txt_endereco_free: TextView = itemView.findViewById(R.id.txt_endereco_perfil_freelancer_activity)
+        val txt_email_free: TextView = itemView.findViewById(R.id.txt_email_perfil_freelancer_activity)
+        val txt_telefone_free : TextView = itemView.findViewById(R.id.txt_telefone_perfil_freelancer_activity)
+        val txt_descricao_free: TextView = itemView.findViewById(R.id.txt_descricao_perfil_freelancer_activity)
+        val btn_edit: Button = itemView.findViewById(R.id.btn_editar_perfil_freelancer_activity)
 
         init {
-            // Adiciona o Listener no botão de cada item do RecyclerView
             btn_edit.setOnClickListener {
-                // Ação ao clicar no botão
                 val intent = Intent(context, EditarPerfilFreelancerActivity::class.java)
-                context.startActivity(intent) // Usa o contexto passado para iniciar a Activity
+                context.startActivity(intent)
             }
         }
     }
