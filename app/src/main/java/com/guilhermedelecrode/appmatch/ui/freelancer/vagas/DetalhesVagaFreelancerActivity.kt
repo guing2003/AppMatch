@@ -21,11 +21,9 @@ class DetalhesVagaFreelancerActivity : AbstractActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detalhes_vaga_freelancer)
 
-        // Configurar a ActionBar geral
         configActionBarGeral()
         onResume()
 
-        // Recuperar o ID da vaga da intent
         val idVaga = intent.getStringExtra("idVaga") ?: return
 
         carregarDetalhesVaga(idVaga)
@@ -35,29 +33,22 @@ class DetalhesVagaFreelancerActivity : AbstractActivity() {
         val vagasRef = FirebaseFirestore.getInstance().collection("vagas")
         val usuariosRef = FirebaseFirestore.getInstance().collection("usuarios")
 
-        // Buscar os detalhes da vaga
         vagasRef.document(idVaga).get().addOnSuccessListener { documentSnapshot ->
             if (documentSnapshot.exists()) {
-                // Converter o documento para o objeto Vaga
                 val vaga = documentSnapshot.toObject(Vaga::class.java)
 
                 if (vaga != null) {
-                    // Buscar o idUser na vaga para obter o nome da empresa
-                    val idUser = vaga.idUser // Supondo que o campo que armazena o idUser seja idUser
+                    val idUser = vaga.idUser
                     usuariosRef.document(idUser).get().addOnSuccessListener { usuarioSnapshot ->
-                        // Obter o nome da empresa
                         val nomeEmpresa = usuarioSnapshot.getString("nomeEmpresa") ?: "Empresa Desconhecida"
 
-                        // Atualizar o nome da empresa na vaga
                         vaga.nomeEmpresa = nomeEmpresa
 
-                        // Logs adicionais para depuração
                         Log.d("DetalhesVaga", "IdUser: $idUser")
                         Log.d("DetalhesVaga", "Nome da empresa carregado: $nomeEmpresa")
                         Log.d("DetalhesVaga", "UsuarioSnapshot Data: ${usuarioSnapshot.data}")
 
-                        // Configurar o RecyclerView com os dados da vaga
-                        val recyclerView = findViewById<RecyclerView>(R.id.rv_descricao_vaga)
+                        val recyclerView = findViewById<RecyclerView>(R.id.rv_descricao_vaga_detalhes_vaga_freelancer_activity)
                         recyclerView.layoutManager = LinearLayoutManager(this)
                         recyclerView.adapter = DetalhesVagaFreelancerAdapter(this, mutableListOf(vaga))
                     }.addOnFailureListener {

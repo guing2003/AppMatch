@@ -23,14 +23,14 @@
         android:textColor="@color/black"/>
 
     <EditText
-        android:id="@+id/editTextPreco"
+        android:id="@+id/edit_preco_detalhes_vaga_freelancer_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="R$"
         android:inputType="numberDecimal" />
 
     <EditText
-        android:id="@+id/editTextPrazo"
+        android:id="@+id/edit_prazo_detalhes_vaga_freelancer_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Prazo (Horas)"

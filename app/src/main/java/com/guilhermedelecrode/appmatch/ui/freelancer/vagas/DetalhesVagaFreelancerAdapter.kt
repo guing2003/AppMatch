@@ -21,13 +21,13 @@ class DetalhesVagaFreelancerAdapter(
 ) : RecyclerView.Adapter<DetalhesVagaFreelancerAdapter.DetalhesViewHolder>() {
 
     class DetalhesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val txt_titulo_vaga: TextView = itemView.findViewById(R.id.txt_titulo_vaga_item_descricao_vaga_freelancer)
-        val txt_nome_empresa: TextView = itemView.findViewById(R.id.txt_nome_empresa_item_descricao_vaga_freelancer)
-        val txt_descricao: TextView = itemView.findViewById(R.id.txt_descricao_vaga_item_descricao_vaga_freelancer)
-        val txt_habilidades: TextView = itemView.findViewById(R.id.txt_habilidades_vaga_item_descricao_vaga_freelancer)
-        val txt_email: TextView = itemView.findViewById(R.id.txt_email_vaga_item_descricao_vaga_freelancer)
-        val txt_salario: TextView = itemView.findViewById(R.id.txt_salario_vaga_item_descricao_vaga_freelancer)
-        val btn_fazer_oferta: Button = itemView.findViewById(R.id.btn_fazer_oferta_vaga_item_descricao_vaga_freelancer)
+        val txt_titulo_vaga: TextView = itemView.findViewById(R.id.txt_titulo_vaga_detalhes_vaga_freelancer_activity)
+        val txt_nome_empresa: TextView = itemView.findViewById(R.id.txt_nome_empresa_detalhes_vaga_freelancer_activity)
+        val txt_descricao: TextView = itemView.findViewById(R.id.txt_descricao_vaga_detalhes_vaga_freelancer_activity)
+        val txt_habilidades: TextView = itemView.findViewById(R.id.txt_habilidades_vaga_detalhes_vaga_freelancer_activity)
+        val txt_email: TextView = itemView.findViewById(R.id.txt_email_vaga_detalhes_vaga_freelancer_activity)
+        val txt_salario: TextView = itemView.findViewById(R.id.txt_salario_vaga_detalhes_vaga_freelancer_activity)
+        val btn_fazer_oferta: Button = itemView.findViewById(R.id.btn_fazer_oferta_vaga_detalhes_vaga_freelancer_activity)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DetalhesViewHolder {
@@ -80,8 +80,8 @@ class DetalhesVagaFreelancerAdapter(
         nomeUser: String
     ) {
         val dialogView = LayoutInflater.from(context).inflate(R.layout.dialog_oferta, null)
-        val editTextPreco = dialogView.findViewById<EditText>(R.id.editTextPreco)
-        val editTextPrazo = dialogView.findViewById<EditText>(R.id.editTextPrazo)
+        val editTextPreco = dialogView.findViewById<EditText>(R.id.edit_preco_detalhes_vaga_freelancer_activity)
+        val editTextPrazo = dialogView.findViewById<EditText>(R.id.edit_prazo_detalhes_vaga_freelancer_activity)
 
         AlertDialog.Builder(context)
             .setView(dialogView)

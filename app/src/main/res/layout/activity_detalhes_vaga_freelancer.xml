@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_descricao_vaga"
+        android:id="@+id/rv_descricao_vaga_detalhes_vaga_freelancer_activity"
         android:layout_width="409dp"
         android:layout_height="681dp"
         android:layout_marginStart="1dp"
