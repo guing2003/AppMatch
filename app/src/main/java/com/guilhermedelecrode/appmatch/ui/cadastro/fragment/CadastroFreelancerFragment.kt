@@ -31,7 +31,7 @@ class CadastroFreelancerFragment: Fragment(){
         val btn_cadastro_free : Button = view.findViewById(R.id.btn_cadastro_freelancer_fragment)
 
         btn_cadastro_free.setOnClickListener {
-            val email: String = view.findViewById<EditText>(R.id.edit_email_cadastro_freelancer_fragment1).text.toString()
+            val email: String = view.findViewById<EditText>(R.id.edit_email_cadastro_freelancer_fragment).text.toString()
             val senha: String = view.findViewById<EditText>(R.id.edit_senha_cadastro_freelancer_fragment).text.toString()
             val nome: String = view.findViewById<EditText>(R.id.edit_nome_cadastro_freelancer_fragment).text.toString()
             val cpf: String = view.findViewById<EditText>(R.id.edit_cpf_cadastro_freelancer_fragment).text.toString()

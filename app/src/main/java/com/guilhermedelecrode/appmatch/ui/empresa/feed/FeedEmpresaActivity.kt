@@ -38,8 +38,8 @@ class FeedEmpresaActivity : AbstractActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = feedAdapter
 
-        val searchEditText = findViewById<EditText>(R.id.edit_pesquisar_vagas_feed_empresa)
-        val searchButton = findViewById<Button>(R.id.btn_pesquisar_vagas_feed_empresa)
+        val searchEditText = findViewById<EditText>(R.id.edit_pesquisar_vagas_feed_empresa_activity)
+        val searchButton = findViewById<Button>(R.id.btn_pesquisar_vagas_feed_empresa_activity)
 
         searchButton.setOnClickListener {
             val queryText = searchEditText.text.toString().trim()
@@ -68,7 +68,6 @@ class FeedEmpresaActivity : AbstractActivity() {
                         val nomeProjeto = document.getString("nomeProjeto") ?: ""
                         val habilidades = document.getString("habilidades") ?: ""
 
-                        // Verificar se a consulta corresponde ao nome do projeto ou às habilidades
                         if (nomeProjeto.contains(queryText, ignoreCase = true) ||
                             habilidades.contains(queryText, ignoreCase = true)
                         ) {

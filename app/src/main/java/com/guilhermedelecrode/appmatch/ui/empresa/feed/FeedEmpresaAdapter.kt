@@ -25,14 +25,14 @@ class FeedEmpresaAdapter(
 
 
     inner class feedViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val txt_nome_vaga_empresa: TextView = itemView.findViewById(R.id.txt_nome_vaga_empresa)
-        val txt_descricao_vaga_empresa: TextView = itemView.findViewById(R.id.txt_descricao_vaga_empresa)
-        val txt_habilidade_vaga_empresa: TextView = itemView.findViewById(R.id.txt_habilidades_vaga_empresa)
-        val txt_email_vaga_empresa: TextView = itemView.findViewById(R.id.txt_email_vaga_empresa)
-        val txt_valor_Pago_vaga_empresa: TextView = itemView.findViewById(R.id.txt_valor_pago_vaga_empresa)
-        val img_editar_vaga_empresa: ImageView = itemView.findViewById(R.id.img_editar_vaga_empresa)
-        val img_delete_vaga_empresa: ImageView = itemView.findViewById(R.id.img_delete_vaga_empresa)
-        val btn_proposta_vaga_empresa: Button = itemView.findViewById(R.id.btn_propostas_vaga_empresa)
+        val txt_nome_vaga_empresa: TextView = itemView.findViewById(R.id.txt_nome_vaga_feed_empresa_activity)
+        val txt_descricao_vaga_empresa: TextView = itemView.findViewById(R.id.txt_descricao_vaga_feed_empresa_activity)
+        val txt_habilidade_vaga_empresa: TextView = itemView.findViewById(R.id.txt_habilidades_vaga_feed_empresa_activity)
+        val txt_email_vaga_empresa: TextView = itemView.findViewById(R.id.txt_email_vaga_feed_empresa_activity)
+        val txt_valor_Pago_vaga_empresa: TextView = itemView.findViewById(R.id.txt_valor_pago_vaga_feed_empresa_activity)
+        val img_editar_vaga_empresa: ImageView = itemView.findViewById(R.id.img_editar_vaga_feed_empresa_activity)
+        val img_delete_vaga_empresa: ImageView = itemView.findViewById(R.id.img_delete_vaga_feed_empresa_activity)
+        val btn_proposta_vaga_empresa: Button = itemView.findViewById(R.id.btn_propostas_vaga_feed_empresa_activity)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): feedViewHolder {
