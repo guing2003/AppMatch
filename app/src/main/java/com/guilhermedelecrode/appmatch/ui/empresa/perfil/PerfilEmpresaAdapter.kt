@@ -17,20 +17,18 @@ class PerfilEmpresaAdapter(private val perfilList: MutableList<PerfilEmpresa>,
 ) : RecyclerView.Adapter<PerfilEmpresaAdapter.perfilViewHolder>() {
 
     inner class perfilViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val txt_nome_empresa: TextView = itemView.findViewById(R.id.txt_nome_item_perfil_empresa)
-        val txt_cnpj: TextView = itemView.findViewById(R.id.txt_cnpj_item_perfil_empresa)
-        val txt_endereco_empresa: TextView = itemView.findViewById(R.id.txt_endereco_item_perfil_empresa)
-        val txt_email_empresa: TextView = itemView.findViewById(R.id.txt_email_item_perfil_empresa)
-        val txt_telefone_empresa : TextView = itemView.findViewById(R.id.txt_telefone_item_perfil_empresa)
-        val txt_seguimento: TextView = itemView.findViewById(R.id.txt_seguimento_item_perfil_empresa)
-        val btn_edit: Button = itemView.findViewById(R.id.btn_editar_item_perfil_empresa)
+        val txt_nome_empresa: TextView = itemView.findViewById(R.id.txt_nome_perfil_empresa_activity)
+        val txt_cnpj: TextView = itemView.findViewById(R.id.txt_cnpj_perfil_empresa_activity)
+        val txt_endereco_empresa: TextView = itemView.findViewById(R.id.txt_endereco_perfil_empresa_activity)
+        val txt_email_empresa: TextView = itemView.findViewById(R.id.txt_email_perfil_empresa_activity)
+        val txt_telefone_empresa : TextView = itemView.findViewById(R.id.txt_telefone_perfil_empresa_activity)
+        val txt_seguimento: TextView = itemView.findViewById(R.id.txt_seguimento_perfil_empresa_activity)
+        val btn_edit: Button = itemView.findViewById(R.id.btn_editar_perfil_empresa_activity)
 
         init {
-            // Adiciona o Listener no botão de cada item do RecyclerView
             btn_edit.setOnClickListener {
-                // Ação ao clicar no botão
                 val intent = Intent(context, EditarPerfilEmpresaActivity::class.java)
-                context.startActivity(intent) // Usa o contexto passado para iniciar a Activity
+                context.startActivity(intent)
             }
         }
     }

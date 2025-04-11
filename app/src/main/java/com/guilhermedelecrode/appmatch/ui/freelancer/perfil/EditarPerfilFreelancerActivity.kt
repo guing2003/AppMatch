@@ -24,8 +24,8 @@ class EditarPerfilFreelancerActivity : AbstractActivity() {
         loadEditPerfilFromFirestore()
 
 
-        val btn_cancelar_edit_free = findViewById<Button>(R.id.btn_cancelar_edit_empresa)
-        val btn_salvar_edit_free = findViewById<Button>(R.id.btn_salvar_edit_empresa)
+        val btn_cancelar_edit_free = findViewById<Button>(R.id.btn_cancelar_edit_empresa_activity)
+        val btn_salvar_edit_free = findViewById<Button>(R.id.btn_salvar_edit_empresa_activity)
 
         btn_salvar_edit_free.setOnClickListener {
             updatePerfilToFirestore()

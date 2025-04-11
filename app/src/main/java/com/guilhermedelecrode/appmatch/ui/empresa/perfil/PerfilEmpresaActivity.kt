@@ -27,11 +27,9 @@ class PerfilEmpresaActivity : AbstractActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_perfil_empresa)
 
-        // Configurar a ActionBar geral
         configActionBarGeral()
         onResume()
 
-        // Inicializar RecyclerView e adapter
         val perfilList = mutableListOf<PerfilEmpresa>()
         perfilAdapter = PerfilEmpresaAdapter(perfilList, this)
 
@@ -39,7 +37,6 @@ class PerfilEmpresaActivity : AbstractActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = perfilAdapter
 
-        // Carregar vagas do Firestore
         loadPerfilFromFirestore()
         Log.d("Lista","$perfilList" )
         onResume()
@@ -81,7 +78,6 @@ class PerfilEmpresaActivity : AbstractActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        // Remove o listener para evitar vazamento de memória
         perfilListener?.remove()
     }
 
