@@ -33,7 +33,7 @@ class PerfilEmpresaActivity : AbstractActivity() {
         val perfilList = mutableListOf<PerfilEmpresa>()
         perfilAdapter = PerfilEmpresaAdapter(perfilList, this)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.rv_perfil_empresa)
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_perfil_empresa_activity)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = perfilAdapter
 

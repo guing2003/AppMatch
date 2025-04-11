@@ -27,7 +27,7 @@ class OrdemServicoEmpresaActivity : AbstractActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ordem_servico_empresa)
 
-        recyclerView = findViewById(R.id.rv_ordens_servico)
+        recyclerView = findViewById(R.id.rv_ordem_servico_empresa_activity)
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = OrdensServicoAdapter(this, ordensServico)
         recyclerView.adapter = adapter
@@ -36,7 +36,7 @@ class OrdemServicoEmpresaActivity : AbstractActivity() {
         onResume()
         loadOrdensServico()
 
-        val spinner = findViewById<Spinner>(R.id.spinner_ordem_servico_empresa)
+        val spinner = findViewById<Spinner>(R.id.spinner_ordem_servico_empresa_activity)
         val statusOptions = listOf("Todos", "Em andamento", "Concluída")
         val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, statusOptions)
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)

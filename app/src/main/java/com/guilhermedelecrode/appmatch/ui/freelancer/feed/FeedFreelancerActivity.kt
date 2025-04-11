@@ -20,29 +20,26 @@ import com.guilhermedelecrode.appmatch.ui.freelancer.perfil.PerfilFreelancerActi
 class FeedFreelancerActivity : AbstractActivity() {
 
     private lateinit var feedFreeAdapter: FeedFreelancerAdapter
-    private val vagaList = mutableListOf<Vaga>() // Lista filtrada para exibição
-    private val originalList = mutableListOf<Vaga>() // Lista original sem filtros
+    private val vagaList = mutableListOf<Vaga>()
+    private val originalList = mutableListOf<Vaga>()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_feed_freelancer)
 
-        // Configurar a ActionBar geral
         configActionBarGeral()
         onResume()
 
 
-        // Configurar RecyclerView e Adapter
         feedFreeAdapter = FeedFreelancerAdapter(this, vagaList)
-        val recyclerView = findViewById<RecyclerView>(R.id.rv_feed_free)
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_feed_freelancer_activity)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = feedFreeAdapter
 
 
-        // Configurar busca por habilidades
-        val etBuscarHabilidade = findViewById<EditText>(R.id.edit_buscar_habilidade)
-        val btnBuscarHabilidade = findViewById<Button>(R.id.btn_buscar_habilidade)
+        val etBuscarHabilidade = findViewById<EditText>(R.id.edit_buscar_vaga_habilidade_feed_freelancer_activity)
+        val btnBuscarHabilidade = findViewById<Button>(R.id.btn_buscar_vaga_habilidade_feed_freelancer_activity)
 
         btnBuscarHabilidade.setOnClickListener {
             val query = etBuscarHabilidade.text.toString().trim()
@@ -53,14 +50,13 @@ class FeedFreelancerActivity : AbstractActivity() {
             }
         }
 
-        // Carregar dados do Firestore
         loadVagasFreeFromFirestore()
         Log.d("Lista","$vagaList" )
     }
 
 
     private fun buscarPorHabilidade(habilidade: String) {
-        vagaList.clear() // Limpa os itens atuais
+        vagaList.clear()
         vagaList.addAll(originalList.filter {
             it.habilidades.contains(habilidade, ignoreCase = true)
         })
@@ -69,14 +65,14 @@ class FeedFreelancerActivity : AbstractActivity() {
             Toast.makeText(this, "Nenhuma vaga encontrada para a habilidade: $habilidade", Toast.LENGTH_SHORT).show()
         }
 
-        feedFreeAdapter.notifyDataSetChanged() // Atualiza a RecyclerView
+        feedFreeAdapter.notifyDataSetChanged()
     }
 
     private fun loadVagasFreeFromFirestore() {
         val db = FirebaseFirestore.getInstance()
 
         db.collection("vagas").get().addOnSuccessListener { snapshots ->
-            originalList.clear() // Limpa os dados anteriores
+            originalList.clear()
             snapshots.forEach { document ->
                 val idVaga = document.getString("idVaga") ?: ""
                 val nomeProjeto = document.getString("nomeProjeto") ?: ""
@@ -85,12 +81,11 @@ class FeedFreelancerActivity : AbstractActivity() {
                 val email = document.getString("email") ?: ""
                 val valorPago = document.getString("valorPago") ?: ""
 
-                // Adiciona os itens na lista original
                 originalList.add(
                     Vaga(
                         idVaga = idVaga,
-                        idUser = document.getString("idUsuario") ?: "", //id do usuario que criou a vaga
-                        id = "", //ID do usuario logado
+                        idUser = document.getString("idUsuario") ?: "",
+                        id = "",
                         nomeProjeto = nomeProjeto,
                         nomeEmpresa = "",
                         descricao = descricao,
@@ -102,7 +97,7 @@ class FeedFreelancerActivity : AbstractActivity() {
             }
 
             vagaList.clear()
-            vagaList.addAll(originalList) // Exibe tudo inicialmente
+            vagaList.addAll(originalList) 
             feedFreeAdapter.notifyDataSetChanged()
         }
     }

@@ -34,7 +34,7 @@ class FeedEmpresaActivity : AbstractActivity() {
         val vagaList = mutableListOf<Vaga>()
         feedAdapter = FeedEmpresaAdapter(this, vagaList)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.rv_feed_empresa)
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_feed_empresa_activity)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = feedAdapter
 

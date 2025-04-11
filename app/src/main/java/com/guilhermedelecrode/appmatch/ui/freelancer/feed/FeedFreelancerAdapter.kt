@@ -17,10 +17,10 @@ class FeedFreelancerAdapter(private val context: Context,
 
 
     inner class feedFreeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val txt_titulo_vaga_free : TextView = itemView.findViewById(R.id.txt_titulo_free)
-        val txt_habilidade_free : TextView = itemView.findViewById(R.id.txt_habilidade_free)
-        val txt_salario_free : TextView = itemView.findViewById(R.id.txt_salario_free)
-        val btn_detalhes_free : Button = itemView.findViewById(R.id.btn_detalhes_vaga)
+        val txt_titulo_vaga_free : TextView = itemView.findViewById(R.id.txt_titulo_vaga_feed_freelancer_activity)
+        val txt_habilidade_free : TextView = itemView.findViewById(R.id.txt_habilidade_vaga_feed_freelancer_activity)
+        val txt_salario_free : TextView = itemView.findViewById(R.id.txt_salario_vaga_feed_freelancer_activity)
+        val btn_detalhes_free : Button = itemView.findViewById(R.id.btn_detalhes_vaga_feed_freelancer_activity)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): feedFreeViewHolder {
@@ -36,10 +36,9 @@ class FeedFreelancerAdapter(private val context: Context,
        // holder.txt_email.text = "Email: ${vaga.email}"
         holder.txt_salario_free.text = "Valor Proposto: R$${vaga.valorPago}"
 
-        // Configurar botão de detalhes
         holder.btn_detalhes_free.setOnClickListener {
             val intent = Intent(context, DetalhesVagaFreelancerActivity::class.java)
-            intent.putExtra("idVaga", vaga.idVaga) // 'vaga.id' contém o ID da vaga selecionada
+            intent.putExtra("idVaga", vaga.idVaga)
             context.startActivity(intent)
         }
     }

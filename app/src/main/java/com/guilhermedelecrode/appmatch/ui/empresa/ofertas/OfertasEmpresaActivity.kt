@@ -61,7 +61,7 @@ class OfertasEmpresaActivity : AbstractActivity() {
     }
 
     private fun updateOffersUI(offers: List<Ofertas>, vaga: Vaga) {
-        val recyclerView = findViewById<RecyclerView>(R.id.rv_ofertas)
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_ofertas_empresa_activity)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = OfertasEmpresaAdapter(this, offers, vaga, ::onStatusChange)
     }

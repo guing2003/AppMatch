@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edit_buscar_habilidade"
+        android:id="@+id/edit_buscar_vaga_habilidade_feed_freelancer_activity"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -37,18 +37,18 @@
         app:layout_constraintTop_toBottomOf="@+id/textView47" />
 
     <Button
-        android:id="@+id/btn_buscar_habilidade"
+        android:id="@+id/btn_buscar_vaga_habilidade_feed_freelancer_activity"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="?android:attr/actionModeWebSearchDrawable"
         android:backgroundTint="@color/black"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/edit_buscar_habilidade"
-        app:layout_constraintTop_toTopOf="@+id/edit_buscar_habilidade" />
+        app:layout_constraintStart_toEndOf="@+id/edit_buscar_vaga_habilidade_feed_freelancer_activity"
+        app:layout_constraintTop_toTopOf="@+id/edit_buscar_vaga_habilidade_feed_freelancer_activity" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_feed_free"
+        android:id="@+id/rv_feed_freelancer_activity"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="1dp"
@@ -57,6 +57,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_buscar_habilidade" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_buscar_vaga_habilidade_feed_freelancer_activity" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
