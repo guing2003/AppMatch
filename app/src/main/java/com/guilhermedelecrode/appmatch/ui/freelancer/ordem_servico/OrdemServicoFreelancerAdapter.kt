@@ -24,18 +24,17 @@ class OrdensServicoFreelancerAdapter(
 
     override fun getItemCount() = ordensServico.size
 
-    // Método para atualizar a lista de ordens
     fun updateOrdensServico(novasOrdens: List<OrdemServico>) {
         ordensServico.clear()
         ordensServico.addAll(novasOrdens)
-        notifyDataSetChanged() // Notifica o adapter sobre a atualização dos dados
+        notifyDataSetChanged()
     }
 
     inner class OrdemServicoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val nomeProjeto: TextView = itemView.findViewById(R.id.txt_titulo_vaga_item_ordem_servico_freelancer)
-        private val email: TextView = itemView.findViewById(R.id.txt_email_item_ordem_servico_freelancer)
-        private val prazo: TextView = itemView.findViewById(R.id.txt_prazo_item_ordem_servico_freelancer)
-        private val status: TextView = itemView.findViewById(R.id.txt_status_item_ordem_servico_freelancer)
+        private val nomeProjeto: TextView = itemView.findViewById(R.id.txt_titulo_vaga_ordem_servico_freelancer_activity)
+        private val email: TextView = itemView.findViewById(R.id.txt_email_ordem_servico_freelancer_activity)
+        private val prazo: TextView = itemView.findViewById(R.id.txt_prazo_ordem_servico_freelancer_activity)
+        private val status: TextView = itemView.findViewById(R.id.txt_status_ordem_servico_freelancer_activity)
 
         fun bind(ordemServico: OrdemServico) {
             nomeProjeto.text = "Titulo da vaga: ${ordemServico.nomeProjeto}"

@@ -24,7 +24,7 @@ class OrdemServicoFreelancerActivity : AbstractActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapter: OrdensServicoFreelancerAdapter
     private val ordensServico = mutableListOf<OrdemServico>()
-    private val ordensServicoOriginal = mutableListOf<OrdemServico>() // Lista original
+    private val ordensServicoOriginal = mutableListOf<OrdemServico>()
     private lateinit var auth: FirebaseAuth
     private lateinit var userId: String
 
@@ -32,7 +32,6 @@ class OrdemServicoFreelancerActivity : AbstractActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ordem_servico_freelancer)
 
-        // Configurar a ActionBar geral
         configActionBarGeral()
         onResume()
 
@@ -40,29 +39,26 @@ class OrdemServicoFreelancerActivity : AbstractActivity() {
         val currentUser = auth.currentUser
         if (currentUser == null) {
             Toast.makeText(this, "Usuário não autenticado!", Toast.LENGTH_SHORT).show()
-            finish() // Finaliza a activity ou redireciona para login
+            finish()
             return
         } else {
             userId = currentUser.uid
         }
 
-        // Inicializar RecyclerView
-        recyclerView = findViewById(R.id.rv_ordem_servico_free)
+
+        recyclerView = findViewById(R.id.rv_ordem_servico_freelancer_activity)
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = OrdensServicoFreelancerAdapter(this, ordensServico)
         recyclerView.adapter = adapter
 
-        // Carregar as ordens de serviço
         loadOrdensServico()
 
-        // Inicializar Spinner para filtrar por status
         val spinner = findViewById<Spinner>(R.id.spinner_status_ordem_free)
         val statusOptions = listOf("Todos", "Em andamento", "Concluída")
         val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, statusOptions)
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter = spinnerAdapter
 
-        // Ação ao selecionar um item do Spinner
         spinner.setOnItemSelectedListener(object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>, view: View?, position: Int, id: Long) {
                 val statusSelecionado = statusOptions[position]
@@ -74,8 +70,7 @@ class OrdemServicoFreelancerActivity : AbstractActivity() {
             }
         })
 
-        // Definir valor padrão para o spinner
-        spinner.setSelection(0) // Seleciona o primeiro item, que no caso seria "Todos"
+        spinner.setSelection(0)
     }
 
     private fun loadOrdensServico() {
@@ -85,9 +80,9 @@ class OrdemServicoFreelancerActivity : AbstractActivity() {
             .get().addOnSuccessListener { querySnapshot ->
                 val ordens = querySnapshot.documents.mapNotNull { it.toObject(OrdemServico::class.java) }
                 ordensServicoOriginal.clear()
-                ordensServicoOriginal.addAll(ordens) // Salva a lista original
+                ordensServicoOriginal.addAll(ordens)
                 ordensServico.clear()
-                ordensServico.addAll(ordens) // Inicializa com todas as ordens
+                ordensServico.addAll(ordens)
                 adapter.notifyDataSetChanged()
             }.addOnFailureListener { e ->
                 Toast.makeText(
@@ -99,19 +94,17 @@ class OrdemServicoFreelancerActivity : AbstractActivity() {
     }
 
     private fun aplicarFiltro(status: String) {
-        if (ordensServicoOriginal.isEmpty()) return // Evita processamento se não houver ordens
+        if (ordensServicoOriginal.isEmpty()) return
 
-        // Converte o status para minúsculas para garantir que a comparação seja case-insensitive
         val statusLower = status.lowercase()
 
         val ordensFiltradas = when (statusLower) {
-            "todos" -> ordensServicoOriginal // Retorna todas as ordens
+            "todos" -> ordensServicoOriginal
             "em andamento" -> ordensServicoOriginal.filter { it.status?.lowercase() == "em andamento" }
             "concluída" -> ordensServicoOriginal.filter { it.status?.lowercase() == "concluída" }
             else -> ordensServicoOriginal
         }
 
-        // Atualiza a lista no Adapter
         adapter.updateOrdensServico(ordensFiltradas)
     }
 

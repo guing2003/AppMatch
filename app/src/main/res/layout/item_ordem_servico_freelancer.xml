@@ -6,7 +6,7 @@
     android:padding="8dp">
 
     <TextView
-        android:id="@+id/txt_titulo_vaga_item_ordem_servico_freelancer"
+        android:id="@+id/txt_titulo_vaga_ordem_servico_freelancer_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="8dp"
@@ -15,7 +15,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/txt_email_item_ordem_servico_freelancer"
+        android:id="@+id/txt_email_ordem_servico_freelancer_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="8dp"
@@ -24,14 +24,14 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/txt_prazo_item_ordem_servico_freelancer"
+        android:id="@+id/txt_prazo_ordem_servico_freelancer_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="8dp"
         android:text="Prazo Estipulado:"
         android:textSize="20sp" />
     <TextView
-        android:id="@+id/txt_status_item_ordem_servico_freelancer"
+        android:id="@+id/txt_status_ordem_servico_freelancer_activity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="8dp"
