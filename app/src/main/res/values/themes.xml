@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.AppMatch" parent="Theme.AppCompat.DayNight.NoActionBar">
+    <style name="Base.Theme.AppMatch" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Personalizar o ActionBar -->
         <item name="windowActionBar">true</item>
         <item name="windowNoTitle">false</item>
@@ -8,7 +8,7 @@
 
         <item name="android:navigationBarColor">@color/principal</item>
 
-        <!-- Cor do fundo da ActionBar (transparente) -->
+        <!-- Cor do fundo da ActionBar-->
         <item name="actionBarStyle">@style/WhiteActionBar</item>
 
         <!-- Cor dos ícones da ActionBar, incluindo os três pontos do menu -->
@@ -28,6 +28,6 @@
     <!-- Estilo customizado para a ActionBar (fundo transparente) -->
     <style name="WhiteActionBar" parent="Widget.AppCompat.ActionBar">
         <item name="background">@android:color/transparent
-        </item> <!-- Torna a ActionBar transparente -->
+        </item>
     </style>
 </resources>
