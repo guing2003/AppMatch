@@ -113,13 +113,13 @@ class MainActivity : AbstractActivity() {
                             "empresa" -> {
                                 val intent = Intent(this, FeedEmpresaActivity::class.java)
                                 startActivity(intent)
-
+                                finish()
                             }
 
                             "freelancer" -> {
                                 val intent = Intent(this, FeedFreelancerActivity::class.java)
                                 startActivity(intent)
-
+                                finish()
                             }
 
                             else -> {
